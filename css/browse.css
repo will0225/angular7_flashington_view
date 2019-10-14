@@ -1,0 +1,262 @@
+#wrapper {
+    position:relative;
+}
+
+#slide{
+    width:48px;
+    height:38px;
+
+    float:right;
+    background-color: #FF9900;
+    background-image: url(../img/FlixFling_mobile_tab.png);
+    display: none;
+}
+
+#menuContainer{
+    width:220px;
+    height:100%;
+    position: absolute;
+    overflow: hidden;
+}
+#browseLeft {
+    width:220px;
+    height:auto;
+    overflow:auto;
+    background-color:#1c1c1c;
+    position:relative;
+    float:left;
+    left:0px;
+}
+
+#browseLeft > ul {
+    margin:0px;
+    padding:0px;
+}
+
+#browseLeft > ul li {
+    list-style-type:none;
+    padding:3px 22px;
+}
+
+#browseLeft > ul li a  {   
+    text-transform:uppercase;
+    font-size:15px;
+    color:#939393;
+    display:block;
+}
+
+#browseLeft > ul li:hover {
+    background-color:#111;
+}
+
+#browseLeft > ul li:hover a {    
+    color:#fff;
+}
+
+#browseLeft .title {
+    background-color:#262626;
+    padding:10px 20px;
+    color:#fff;
+    font-weight:bold;
+    box-shadow:0px 0px 10px #000;
+    margin-bottom:10px;
+}
+
+#browseRight {
+    margin-left:220px;
+    min-height:1000px;
+}
+
+#browseRight .slide-wrapper {
+    height:270px;
+    overflow:hidden;
+    position:relative;
+}
+
+#browseRight .single-wrapper {
+    position:relative;
+    margin:0px 20px;
+}
+
+#browseRight h2 {
+    font-size:20px;
+    margin:0px 0px 0px 50px;
+    padding:0px;
+}
+
+#browseRight h2 a {
+    font-size:14px;
+}
+
+#browseRight .slide-wrapper ul {
+    height:270px;
+    list-style: none;
+    position:absolute;
+    display:block;
+    white-space:nowrap;
+    margin:0px;
+    padding:0px;
+    top:0px;
+    left:0px;
+    margin:0px 40px;
+}
+
+#browseRight .slide-wrapper ul li {
+    list-style-type: none;
+    display:inline-block;
+    height:250px;
+    padding:10px;
+}
+
+#browseRight .slide-wrapper ul li span {
+
+}
+
+#browseRight .single-wrapper a {
+    margin:10px;
+    display:inline-block;
+}
+
+#browseRight .slide-wrapper ul li a img, #browseRight .single-wrapper a img {
+    border-radius:4px;
+    border:1px solid #666;
+    opacity:.75;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#browseRight .slide-wrapper ul li a:hover img, #browseRight .single-wrapper a:hover img {
+    box-shadow:0 0 16px #008bd3;
+    border:1px solid #008bd3;
+    opacity:1;
+}
+
+#browseRight .slide-wrapper ul li div.movie-title, #browseRight .single-wrapper a div.movie-title {
+    width:136px;
+    font-size:14px;
+    padding-top:4px;
+}
+
+#browseRight .slide-wrapper ul li div.movie-title span, #browseRight .single-wrapper a div.movie-title span {
+    color:#777;
+    overflow:hidden;
+    white-space:nowrap;
+    width:110px;
+    display:block;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-overflow:ellipsis;
+}
+
+#browseRight .slide-wrapper ul li a:hover div.movie-title span, #browseRight .single-wrapper a:hover div.movie-title span {
+    color:#fff;
+}
+
+section#pageContent {
+    overflow:hidden;
+}
+
+.btn-slide {
+    display:none;
+    cursor:pointer;
+}
+
+.btn-back {
+    width:40px;
+    height:250px;
+    background:url(/img/genre_nav_left_offn.png) no-repeat;
+    position:absolute;
+    left:10px;
+    top:0px;
+    z-index:10;
+}
+
+.btn-forward {
+    width:50px;
+    height:250px;
+    background:url(/img/genre_nav_right_offn.png)  no-repeat;
+    position:absolute;    
+    right:0px;
+    top:0px;
+    z-index:10;
+}
+
+.btn-back:hover {
+     background:url(/img/genre_nav_left_onn.png) no-repeat;
+}
+
+.btn-forward:hover {
+    background:url(/img/genre_nav_right_onn.png)  no-repeat;
+   
+}
+
+@media only screen and (min-width:650px) {
+    #menuContainer.stick {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    
+}
+
+
+    
+    
+    
+
+}
+/************************************************************************
+*************************************************************************
+        GREATER THAN 480 and LESS THAN 6500px
+/************************************************************************
+*************************************************************************/
+@media only screen and (max-width:649px) {
+    #menuContainer{
+        width:270px;
+        height:100%;
+        position:fixed;
+        left:-220px;
+        z-index: 10000;
+    }
+
+    #slide{
+        display:block;
+        position: relative;
+        left:-8px;
+    }
+
+    #browseLeft {
+    width:220px;
+    height:100%;
+    overflow:scroll;
+    background-color:#1c1c1c;
+    left:0px;
+    float:left;
+
+    }
+
+    #browseRight{
+        margin-left: 0px;
+    }
+
+    #browseRight .single-wrapper {
+    position:relative;
+    margin:8px 6px;
+}
+
+}
+@media(max-width:479px) and (min-width:400px){
+    #filter_box{
+        width:170px;
+    }
+}
+@media(max-width:399px){
+    #filter_box{
+        display: none;
+    }
+}

@@ -1,0 +1,760 @@
+/* CSS Document */
+
+div.detail-channel{
+	position:relative;
+	padding: 10px 0px;
+}
+div.detail-channel>*{
+	float:left;
+	display:block;
+}
+div.detail-channel>img{
+	width: 51%;
+	margin: 0px 1% 0px 2%;
+}
+div.detail-channel>a{
+	width: 45%;
+	margin-top: 2%;
+	height: 40px;
+	background-image:url("../img/details_channel_join.png");
+	background-position:center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+div.detail-channel>a.subscribed{
+	background-image:url("../img/details_channel_subscribed.png");
+}
+
+div.detail-channel>a:hover{
+	background-image:url("../img/details_channel_join_hover.png");
+}
+
+div.detail-channel>a.subscribed:hover{
+	background-image:url("../img/details_channel_subscribed_hover.png");
+}
+
+section.movieDetails>div.detailsLeft>h1{
+	font-size:1.6em;
+}
+
+div.detailsRight h1{
+	font-size:1.6em;
+	margin-top:0px;
+}
+div.detailsRight h1 a {
+	color: white;
+}
+
+.suggestions>.slide-wrapper{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.suggestions>.slide-wrapper>ul.slide {
+	width:100%;
+	list-style: none;
+	display: block;
+	white-space: nowrap;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+	left: 0px;
+	margin: 0px 0px;
+}
+.suggestions>.slide-wrapper>ul.slide>li.movie{
+	width:33%;
+	list-style-type: none;
+	display: inline-block;
+	padding: 1%;
+}
+.suggestions>.slide-wrapper>ul.slide>li.movie>a,
+.suggestions>.slide-wrapper>ul.slide>li.movie>a>img{
+	width:100%;
+}
+
+.btn-back {
+	width:40px;
+	height:250px;
+	background:url(../img/genre_nav_left_offn.png) no-repeat;
+	position:absolute;
+	left:10px;
+	top:0px;
+	z-index:10;
+}
+
+.btn-forward {
+	width:50px;
+	height:250px;
+	background:url(../img/genre_nav_right_offn.png)  no-repeat;
+	position:absolute;
+	right:0px;
+	top:0px;
+	z-index:10;
+}
+
+.btn-back:hover {
+	background:url(../img/genre_nav_left_onn.png) no-repeat;
+}
+
+.btn-forward:hover {
+	background:url(../img/genre_nav_right_onn.png)  no-repeat;
+
+}
+
+section.movieDetails div.posterWrapper>img{
+	width: 100%;
+}
+section.movieDetails div.posterWrapper>button{
+	display:block;
+	margin:10px auto;
+	width:120px;
+	font-size:16px;
+	font-weight:bold;
+	padding-left:16px;
+	background-image:url('../img/btn_play_trailer.png');
+	background-repeat:no-repeat;
+	background-position:center left;
+}
+
+section.movieDetails button.btn_titleLikes{
+	margin-left:240px;
+	margin-top:20px;
+	background-image:url('../img/like.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	display:block;
+	width:70px;
+	height:30px;
+}
+section.movieDetails p.txt_titleLikes{
+	margin-left:180px;
+}
+section.movieDetails .btn_premium_button,
+section.movieDetails .btn_subscription_button{
+	margin:12px 0px 0px 0px;
+	right:0px;
+	left:0px;
+	padding:0px 0px 0px 24px;
+
+	position: relative;
+}
+
+
+
+.episode.titleAction{
+	display:block;
+	width:auto;
+	-moz-width:calc(50%-48px);
+	width:calc(50%-48px);
+	float:left;
+	padding: 8px 0px 8px 37px;
+	margin: 5px 16px;
+	font-size:.9em;
+	max-height:50px;
+}
+
+.titleAction.btn_play_title{
+	background-image:url('../img/btn_play_title_on.png');
+}
+
+.titleAction.btn-hollow{
+	margin-right: 0px;
+	display:inline-block;
+	vertical-align: bottom;
+	width:33%;
+	min-width: 160px;
+	padding:10px;
+	margin: 6px auto;
+	font-size:.9em;
+	text-align:center;
+	border: 1px solid white;
+	color: white;
+}
+
+.titleAction:hover {
+	background-color: #36CDFF;
+	color: white;
+	text-decoration: none;
+	border-color:#36CDFF;
+}
+
+.titleAction.buttonStyle2{
+	padding:10px 0px;
+	font-size:18px;
+}
+
+a.episode{
+	display:block;
+	text-align:center;
+	margin-right:20px;
+	color: #ffb200;
+}
+
+a.episode:visited{
+	color: #ffb200;
+}
+
+.btn_premium_button,
+.btn_subscription_button{
+	color:#26FFE8;
+	text-align:center;
+	font-weight:bold;
+	border-radius:2px;
+	/*background: rgb(155,155,155); /* Old browsers */
+	padding: 2px 10px;
+	display:inline-block;
+	position:relative;
+	background: url(../img/movie-premium.png) left top no-repeat;
+	padding-left: 20px;
+}
+
+.btn_subscription_button{
+	color: #EDFF26;
+	background: url(../img/movie-subscribe.png) left top no-repeat;
+}
+
+section.movieDetails a.detailsShare{
+	display:inline-block;
+	width:58px;
+	height:21px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	padding-left: 10px;
+}
+section.movieDetails a.detailsShare.facebook{
+	background-image:url('../img/facebook_like_btn.jpg');
+
+}
+section.movieDetails a.detailsShare.facebook:hover{
+	background-image:url('../img/facebook_like_btn.jpg');
+
+}
+section.movieDetails a.detailsShare.twitter{
+	background-image:url('../img/twitter_tweet_btn.jpg');
+	margin-top: 0px;
+}
+section.movieDetails a.detailsShare.twitter:hover{
+	background-image:url('../img/twitter_tweet_btn.jpg');
+
+}
+section.movieDetails a.detailsShare.ggplus{
+	background-image:url('../img/ggplus_share_btn.jpg');
+
+}
+section.movieDetails a.detailsShare.ggplus:hover{
+	background-image:url('../img/ggplus_share_btn.jpg');
+}
+#ratingModal .ratingControl{
+	position: relative;
+	width: 200px;
+	margin: 15px 0 25px 0;
+}
+@media(min-width:550px){
+	#ratingModal .ratingControl {
+		left:33.5%;
+	}
+}
+#ratingModal .ratingHeader{
+	font-size: 20px;
+	text-align: center;
+}
+.ratingControl{
+	position:relative;
+	width: 120px;
+}
+.ratingControl.ratable{
+	cursor:pointer;
+}
+.ratingControl>ul{
+	width:100%;
+	position:relative;
+	margin:0px;
+	padding:0px;
+}
+.ratingControl>ul>li{
+	float:left;
+	list-style:none;
+	width:20%;
+	position:relative;
+}
+.ratingControl>ul>li>img{
+	width:100%;
+	padding:0px;
+	margin:0px;
+}
+div.avgRating>p{
+	padding:0px;
+	margin:0px;
+	position:static;
+}
+
+section#movie_reviews .tab-content{
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+section.userReview{
+	position:relative;
+}
+section.userReview textarea{
+	display:block;
+	width:90%;
+	margin:auto;
+	height:300px;
+	border-radius:14px;
+	border-color:#666;
+	padding:20px;
+}
+
+ul.rating li {
+	display: inline;
+}
+ul.rating {
+	padding: 0;
+}
+
+section.userReview .userRating{
+	text-align: center;
+	margin-top: 15px;
+}
+
+.ratingControl .ratingStar{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('../img/star_off.png') center no-repeat ;
+}
+
+.ratingControl form .ratingStar{
+	cursor:pointer;
+}
+.ratingStar.active{
+	background: url('../img/star_on.png') center no-repeat ;
+}
+
+.ratingStar.userStar{
+	background: url('../img/star_blue_off.png') center no-repeat ;
+}
+
+.ratingStar.userStar.active{
+	background: url('../img/star_blue_on.png') center no-repeat ;
+}
+.ratingControl .ratingStar.bigStar{
+	display: inline-block;
+	width: 35px;
+	height:36px;
+	background: url('../img/star_off_big.png') center no-repeat;
+}
+.ratingStar.bigStar.active{
+	background: url('../img/star_on_big.png') center no-repeat;
+}
+.ratingStar.bigStar.userStar{
+	background: url('../img/star_blue_off_big.png') center no-repeat ;
+}
+.ratingStar.bigStar.userStar.active {
+	background: url('../img/star_blue_on_big.png') center no-repeat;
+}
+
+section.userReview button, div.userRate button{
+	display:block;
+	margin: 10px auto;
+	padding:10px 20px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+section.userRate, div.userRate{
+	position:relative;
+}
+
+div.userRate>div.ratingControl{
+	width:100%;
+	max-width:200px;
+	margin:40px auto;
+}
+div.userRate>button{
+	display:block;
+	margin:40px auto;
+}
+div.anonymousMessage{
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	min-height:200px;
+}
+
+div.anonymousMessage h3{
+	display:block;
+	text-align:center;
+	width:90%;
+	margin: 60px auto;
+}
+
+div.anonymousMessage>button{
+	display:block;
+	margin: auto;
+	padding: 10px 20px;
+}
+
+section.movieDetails hr{
+	clear:both;
+	width:95%;
+}
+a, a:visited, button{
+	font-size: 1.1em;
+	color:#aaa;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	text-decoration:none;
+	background-color:transparent;
+	outline:0px;
+}
+a:hover, button:hover{
+	color:#ffb200;
+
+}
+nav#mainNav, p.detailsHeader, h3.detailsHeader{
+	background: rgb(81,81,81); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUxNTE1MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(81,81,81,1) 0%, rgba(0,0,0,1) 66%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(81,81,81,1)), color-stop(66%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(81,81,81,1) 0%,rgba(0,0,0,1) 66%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(81,81,81,1) 0%,rgba(0,0,0,1) 66%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(81,81,81,1) 0%,rgba(0,0,0,1) 66%,rgba(0,0,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(81,81,81,1) 0%,rgba(0,0,0,1) 66%,rgba(0,0,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#515151', endColorstr='#000000',GradientType=0 ); /* IE6-8 */
+
+	border-top:1px solid #82828f;
+	border-radius: 14px 14px 0px 0px;
+}
+p.detailsHeader{
+	border-radius: 2px;
+	position:relative;
+}
+
+p.detailsHeader>button{
+	width:32%;
+	padding:8px 0px;
+	margin:0px;
+	border-right:1px solid #666;
+}
+
+section.movieDetails ul li {
+	list-style: none;
+}
+
+button.selected,  li.selected{
+	background-image:url('../img/selected_highlight.png');
+	background-repeat:no-repeat;
+	background-position:bottom center;
+	color:#ffb200;
+}
+
+li.selected>a{
+	color:#ffb200;
+}
+
+.ui-tabs {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+	padding: .2em;
+}
+.ui-tabs .ui-tabs-nav {
+	margin: 0;
+	padding: .2em .2em 0;
+}
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	top: 0;
+	margin: 1px .2em 0 0;
+	border-bottom-width: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+	float: left;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	margin-bottom: -1px;
+	padding-bottom: 1px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+	cursor: text;
+}
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+	cursor: pointer;
+}
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	border-width: 0;
+	padding: 1em 1.4em;
+	background: none;
+}
+
+div.videoOverlay{
+	position:fixed;
+	right:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	background:#222;
+	z-index:199;
+}
+
+span.labelStyle1 {
+	display: block;
+	color: #aaa;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	margin-top: 30px;
+}
+span.labelStyle1 ~ ul > li > a, span.labelStyle1 ~ span a {
+	color: white;
+}
+#btn_premium_button-mobile,
+#btn_free_button-mobile,
+#btn_subscription_button-mobile{
+	font-size: 14px;
+	margin-left: 4px;
+}
+@media(max-width:479px){
+	#btn_premium_button-desktop,
+	#btn_free_button-desktop,
+	#btn_subscription_button-desktop{
+		display: none;
+	}
+}
+@media(min-width:480px){
+	#btn_premium_button-mobile,
+	#btn_free_button-mobile,
+	#btn_subscription_button-mobile{
+		display: none;
+	}
+}
+
+
+h3.quickDetails {
+	margin: 15px 0 30px;
+	font-size: 1.5rem;
+	display: table;
+	width: 100%;
+	color: #aaa;
+}
+h3.quickDetails span {
+	display: table-cell;
+}
+@media(max-width:450px){
+	h3.quickDetails span {
+		font-size: 12px;
+	}
+}
+h3.quickDetails span.btn_premium_button,
+h3.quickDetails span.btn_subscription_button {
+	text-align: left;
+}
+
+.actionContainer {
+	padding-top: 20px;
+	border-top: 1px dashed #444;
+}
+div.suggestions{
+	margin: 20px 0;
+	border-top: 1px dashed #444;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus, .nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+	color: #aaa;
+	background: none;
+	border: none;
+}
+.nav-tabs {
+	border: none;
+}
+
+.writeReview {
+	text-decoration: underline;
+	float: right!important;
+	font-size: 1.3rem;
+}
+
+div.actionContainer .purchaseButton,
+div.actionContainer .streamButton{
+	padding:0;
+	text-align: left;
+	width: 31%;
+	cursor: pointer;
+	margin-right: 15px;
+}
+#trailer_btn{
+	border:none;
+	width: 25%;
+	vertical-align: bottom;
+}
+@media(max-width:400px){
+	div.actionContainer .purchaseButton,
+	div.actionContainer .streamButton{
+		width: 100%;
+		text-align: center;
+	}
+	#trailer_btn{
+		width: 100%;
+	}
+}
+
+@media(max-width:560px){
+	div.actionContainer .purchaseButton,
+	div.actionContainer .streamButton{
+		width: 100%;
+		text-align: center;
+	}
+	#trailer_btn{
+		width: 100%;
+	}
+}
+
+@media(max-width: 480px){
+	#reviews ul{
+		padding-left: 8px;
+	}
+}
+
+div.buyEpisode .buyEpisodeButton{
+	cursor: pointer;
+}
+
+
+.modal-open{
+	overflow-y: scroll;
+}
+.purchaseModal .modal-content{
+	text-align: center;
+	width: 90%;
+}
+.purchaseModal .modal-body{
+	padding: 40px 0 70px 0;
+}
+.purchaseModal .purchaseBox{
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #fff;
+	min-width: 142px;
+	cursor: pointer;
+}
+.purchaseModal .purchaseBox.unavailable{
+	color: #aaa;
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+.purchaseModal .purchaseBox.unavailable:hover {
+	background-color:transparent;
+}
+.purchaseModal .purchaseFormat{
+	font-size: 40pt;
+	position: relative;
+}
+.purchaseModal .purchasePrice{
+	display: block;
+	font-size: 20pt;
+	position: relative;
+	padding: 0px 30px 10px;
+	margin-top:-15px;
+}
+
+.purchase-or-block{
+	font-size:12pt;
+	padding:0px 28px;
+	display:inline-block;
+	vertical-align: top;
+	margin-top: 45px;
+}
+@media(max-width:450px){
+	.purchase-or-block {
+		display: block;
+		padding: 0;
+		margin:10px 0;
+	}
+}
+
+div.episode {
+	box-sizing: content-box;
+	padding: 2px 0 2px 15px;
+	margin-left: -15px;
+}
+div.episode:hover {
+	border-left: 3px solid #ffb200;
+	padding-left: 12px;
+	background-color: rgba(255,255,255,0.1);
+}
+div.episode h3 {
+	font-size: 1.3rem;
+	text-transform: uppercase;
+}
+div.episode h3 a {
+	color: #aaa;
+	text-align: left;
+}
+div.episode h3 a:visited {
+	color: #aaa;
+}
+div.episode h3 a:hover,div.episode h3 a:focus {
+	text-decoration: none;
+}
+div.episode p {
+	font-size: 1.3rem;
+}
+div.episodeSeparator{
+	border-bottom: 1px dashed #444;
+}
+div.buyEpisode{
+	vertical-align: top;
+	padding: 0;
+	text-align: right;
+}
+div.buyEpisode a.titleAction.btn-hollow{
+	width: auto;
+	padding: 3px;
+	margin: 1em 0 0 0;
+	min-width: 65px;
+	cursor: pointer;
+}
+div.buyEpisode a.titleAction.btn-hollow .bigSpan {
+	font-size:16px;
+	padding-left:5px;
+}
+div.buyEpisode a.titleAction.btn-hollow .lilSpan {
+	font-size:11px;
+	padding-right:5px;
+}
+
+@media(min-width:330px) {
+	div.buyEpisode a.playButton.titleAction.btn-hollow {
+		padding: 3px 19px;
+	}
+}
+
+span.buyBtnText,
+span.rentBtnText{
+	font-size: 17pt;
+	vertical-align:top;
+	padding: 7px 0 7px 18px;
+	display: inline-block;
+}
+span.rentBtnText{
+	padding-left: 10px;
+}
+span.buyBtnPrice,
+span.rentBtnPrice{
+	display: inline-block;
+	vertical-align: bottom;
+	position: relative;
+	bottom: 10px;
+	padding-left: 5px;
+}

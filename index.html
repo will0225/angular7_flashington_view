@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Flashington</title>
+    <meta name="description" content="Watch Movies & TV Shows Online or Streaming right to your TV. Subscription or On Demand. Start your free trial today">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="Content-Language" content="en">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- FlixFling Company Info (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "EntertainmentBusiness",
+        "name": "FlixFling Online Movie and TV Streaming",
+        "description": "FlixFling is the fully integrated way to stream movies on any device providing its customers not only with great content and value but also ultimate flexibility.",
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "telephone": "+12152797125",
+        "email": "info@flixfling.com",
+        "address":
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1600 N 5th St",
+          "addressLocality": "Philadelphia",
+          "addressRegion": "PA",
+          "addressCountry": "USA",
+          "postalCode": "19122"
+        },
+        "url": "https://www.flixfling.com",
+        "image": "https://www.flixfling.com/img/FF_LOGO_YELLOW.png",
+        "logo": "https://www.flixfling.com/img/FF_LOGO_YELLOW.png",
+        "sameAs" : [
+          "https://www.facebook.com/FlixFling/",
+          "https://twitter.com/FlixFling",
+          "https://plus.google.com/b/114498294128771307642/114498294128771307642",
+          "https://www.instagram.com/flixfling/",
+          "https://www.linkedin.com/company/1891427"
+        ]
+      }
+    </script>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+
+    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+    -->
+
+    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+    -->
+    <!--[if gte IE 9]>
+      <style type="text/css">
+        .gradient {
+           filter: none;
+        }
+      </style>
+    <![endif]-->
+      <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/flixfling_responsive.css" />
+    <link rel="stylesheet" href="css/index.css" />
+     <link href='https://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22475035-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-22475035-1');
+    </script>
+    <script type="text/javascript" src="js/index.js"></script>
+      <style type="text/css">
+        .ui-tooltip, .arrow:after {
+          background: black;
+          border: 2px solid white;
+        }
+        .ui-tooltip {
+          padding: 10px 14px;
+          color: white;
+          border-radius: 10px;
+          width: 15em;
+          font-size: 15px;
+          box-shadow: 0 0 7px black;
+        }
+        .arrow {
+          width: 70px;
+          height: 16px;
+          overflow: hidden;
+          position: absolute;
+          left: 50%;
+          margin-left: -35px;
+          bottom: -16px;
+        }
+        .arrow.top {
+          top: -16px;
+          bottom: auto;
+        }
+        .arrow.left {
+          left: 20%;
+        }
+        .arrow:after {
+          content: "";
+          position: absolute;
+          left: 20px;
+          top: -20px;
+          width: 25px;
+          height: 25px;
+          box-shadow: 6px 5px 9px -9px black;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        .arrow.top:after {
+          bottom: -20px;
+          top: auto;
+        }
+        .yellow{
+          text-decoration: underline;
+        }
+        .options_container{
+
+        }
+          video{
+              position: fixed;
+              z-index: 0;
+              top: 0;
+              left: 0%;
+          }
+          @media(max-width: 768px){
+              video{
+                  display: none;
+              }
+          }
+      </style>
+
+</head>
+<body>
+<section class="container">
+
+<div id="ff_home" class="options_container row">
+   <nav>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <a href="https://flashington.com">
+              <img alt="FlixFling" src="img/FF_LOGO_YELLOW.png" style="width: 180px;" id="site_logo"/>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right" style="padding-right:5px;">
+             <a class="" href="https://www.flixfling.com/auth/login" style="font-size: 15px;font-weight: 700;">Sign in</a>
+             <a class="btn btn-md" href="browse.html" style="font-size: 15px;font-weight: 700;">Show me the movies</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="options row">
+        <div class="splashText col-lg-12">
+            Unlimited Movies and Music for One Low Price<span style="font-size:16px; vertical-align: text-top; cursor: help;" title="Thousands of movies and songs included in free trial. Certain premium titles require an additional fee.">*</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12" style="text-align:center;">
+            <a class="btn btn-hollow blueButton" type="button" href="/subscribe/trial14" style="padding: 5px; white-space: normal;">WATCH & LISTEN FREE FOR 14 DAYS!</a>
+        </div>
+    </div>
+    <div class="imageContainer options row">
+        <div class="">
+            <img src="" style="width: 100%;">
+        </div>
+     <!--    <div class="plusSign col-lg-2 col-sm-2 col-xs-3">
+            <img src="img/splash-plus.jpg" style="width: 30%">
+        </div>
+        <div class="col-lg-5">
+            <img src="img/splash-mc-short.jpg" style="width: 100%;">
+        </div> -->
+    </div>
+    
+    <!-- <div class="devices_wrapper row">
+        <div class="device col-lg-4 col-md-4 col-sm-4">
+            <img src="img/splash-tv.png">
+            <div class="devices_title">Watch on your TV</div>
+            Smart TV's, Roku, Xbox 360, Chromecast, Apple TV, Blu-ray players and more.
+        </div>
+        <div class="device col-lg-4 col-md-4 col-sm-4">
+            <img src="img/splash-tabletphone.png">
+            <div class="devices_title">On your phone or tablet</div>
+            iPhone, iPad, Android phones and tablets, Windows phones and tablets.
+        </div>
+        <div class="device col-lg-4 col-md-4 col-sm-4">
+            <img src="img/splash-laptop.png">
+            <div class="devices_title">On any computer</div>
+            Watch on FlixFling.com
+        </div>
+    </div>  --><!-- END DEV WRAPPER -->
+</div>
+<div class="row" style="margin-top:50px;">
+    <div class="col-lg-12" style="text-align: center; font-size: 12px;">
+        * Thousands of movies and songs included in free trial. Certain premium titles require an additional fee.
+    </div>
+</div>
+</section>
+
+    <!-- ADDED TO CREATE THE POPUP -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <!-- 
+      You're not going to find any Easter eggs here, especially since it's like 550 days after Easter.
+    -->
+
+
+</body>
+<footer class='container-fluid '>
+    <div class="container">
+        <div>
+            <h6 id='footerCopyright'>&copy; FlixFling. All Rights Reserved. Your use of this site is subject to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</h6>
+        </div>
+        <nav>
+            <a href="https://www.facebook.com/FlixFling/" target="_blank"><img src="img/ff_facebook.png" alt="Facebook" /></a>
+            <a href="https://twitter.com/FlixFling" target="_blank"><img src="img/ff_twitter.png" alt="Twitter" /></a>
+            <a href="https://plus.google.com/b/114498294128771307642/114498294128771307642" target="_blank"><img src="img/ff_google.png" alt="Google+" /></a>
+            <a href="https://www.instagram.com/flixfling/" target="_blank"><img src="img/ff_instagram.png" alt="Instagram" /></a>
+            <a href="/eula" class="linkDivider">EULA</a>
+            <a href="/about" class="linkDivider">About</a>
+            <a href="http://blog.flixfling.com/" target='_blank' class="linkDivider">Blog</a>
+            <a href="/faq">FAQ</a>
+            <a href="/contact" class="linkDivider">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--<script src="/assets/js/docs.min.js"></script>
+     IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.min.js"></script>
+</html>

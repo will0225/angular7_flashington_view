@@ -1,0 +1,667 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+input,
+select,
+textarea {
+    color: #aaa;
+
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ ::-webkit-scrollbar-track-piece{
+	background: rgba(50,50,50,.2); 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(150,150,150,.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(150,150,150,0.4);
+}
+textarea{
+	resize: none;
+	background-color:transparent;
+}
+body {
+    font-size: 0.9em;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    color:#FFF;
+}
+
+header{
+		
+}
+
+a {
+    color: #00e;
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+a:hover {
+    color: #06e;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+/************************************************************************
+*************************************************************************
+	All screen sizes
+/************************************************************************
+*************************************************************************/
+	html, body, body>*{
+		margin:0;
+		padding:0;
+		border:0;
+	}
+	html, body{
+		min-height:100%;
+	}
+	body>section{
+		position:relative;
+	}
+	/*body>footer{*/
+		/*width:100%;*/
+		/*margin:auto;*/
+		/*display:block;*/
+		/*position:relative;*/
+		/*background-color: #000000;*/
+	/*}*/
+	header{
+		display:block;
+		position:relative;
+		margin-top:0px;
+		height:80px;
+		background-image:url('/img/splash_header_slice.png');
+		background-repeat:repeat-x;
+		padding:0px 5%;
+		width:90%;
+		z-index:2;
+	}
+		
+	img#footerImg{
+		width:100%;
+		margin-top:40px;
+	}
+	
+	a, a:hover, a:visited{
+		border:0px;
+		padding:0px;
+		margin:0px;
+	}
+
+	a, a:visited, a>img{
+		border:0px;
+		padding:0px;
+	}
+	/* Adding 2 different windows to only load 1 graphic per window */
+
+	div#banner{
+		width:100%;
+		max-width:900px;
+		position:relative;
+		margin:auto;
+	}
+	div#banner_small{
+		display: none;
+	}
+	div#banner>a{
+		width:100%;
+		display:block;
+		margin:auto;
+		height: 164px;
+	}
+
+	#ff_logo{
+	     color:#FFF ; 
+	  	 text-decoration: none; 
+	  	 font-size: 0.78em;     
+	}
+	
+	#ff_logo>img, #ff_home>img{
+		width:200px;
+	}
+	
+	#ff_logo>span{
+	  	color:#e9a200 ;    
+	}
+	
+	.plans{
+		font-size:.9em;
+		width:100%;
+		max-width:1000px;
+		margin:auto;
+	}
+	.bullet{
+		text-align: center;
+		padding-top: 5px;
+	}
+	.bullet>img{
+		width: 30px;
+		height: 30px;
+	}
+	.difference_netflix{
+		font-size: 1.3em;
+		font-weight: bolder;
+
+	}
+
+	td>h3{
+		color:#dfdfdf;
+		padding:10px 0px 0px 30px;
+		float: left;
+		margin: 10px 0px 0px 0px;
+		font-size: 1.0em;
+		font-weight: bold;
+	}
+
+
+
+
+	/* *****   FOOTER CSS************/
+
+	/*a.footer_vendor_link{*/
+		/*width:9%;*/
+		/*position:relative;*/
+		/*display:inline-block;*/
+		/*border:0px;*/
+		/*margin:0px;*/
+		/*padding:0px;*/
+		/*text-decoration:none;*/
+	/*}*/
+	/*a.footer_vendor_link>img{*/
+		/*/!*width:100%;*!/*/
+		/*border:0px;*/
+		/*margin:0px;*/
+		/*padding:0px;*/
+	/*}*/
+	/*#footerCopyright{*/
+		/*text-align:center;*/
+		/*margin-bottom:10px;*/
+	/*}*/
+	/*footer>img{*/
+		/*display:block;*/
+		/*margin:auto;*/
+		/*padding-bottom:30px;*/
+	/*}*/
+	
+	/*h1.banner_head{*/
+		/*text-align:center;*/
+		/*font-weight:normal;*/
+	/*}*/
+	/*h1.banner_head>span{*/
+		/*color:#ffb200;*/
+		/*font-weight:bold;*/
+	/*}*/
+	/*p.footnote{*/
+		/*font-size:12px;*/
+		/*max-width:900px;*/
+		/*margin:auto;*/
+		/*margin-top:10px;*/
+		/*position:relative;*/
+		/*text-align:center;*/
+	/*}*/
+	/*img.splash_badge{*/
+		/*position: absolute;*/
+		/*top: -32px;*/
+		/*left: -30px;*/
+		/*z-index: 2;*/
+		/*max-width: 15%;*/
+	/*}*/
+	/*h2.splash_badge{*/
+		/*display:none;*/
+		/*text-align:center;*/
+		/*padding:0px;*/
+		/*margin:0px;*/
+	/*}*/
+	/*video{*/
+		/*position: fixed;*/
+		/*margin-top:0px;*/
+		/*width: 100%;*/
+		/*z-index: -100;*/
+		/*background: url('/img/video_replacement.jpg') no-repeat;*/
+		/*background-size: cover: URL('/img/video_replacement.jpg');*/
+	/*}*/
+
+.options_container{
+	/*background-image: url('/img/splash-background.jpg');*/
+	/*background-repeat: no-repeat;*/
+	padding: 10px;
+}
+
+@media(max-width:768px){
+	.options_container{
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width:650px) {
+	
+	div>#banner_small{
+		display: none;
+	}
+	 .choice_image{
+    	width: 100%;
+    	text-align: center;
+    	padding: 30px;
+    }
+	.Subscribe{		
+        padding-right: 30px;
+        text-shadow: 1px 1px 1px #000;
+        height: 300px;
+     
+    }
+    .Subscribe h1{margin:0px; padding:0px;}
+    .Subscribe ul{
+		
+	 	margin-left:-35px;		
+		width: 345px;
+	}
+    .Subscribe ul li{
+    	font-size:16px;
+    	text-align: right;
+    	list-style-type: none;
+    	font-weight: bold;
+    }
+    .Subscribe .slogan{font-weight: bold;  margin-top: -5px;}
+    .yellow{
+    	color:#ffb200;
+    	/*font-weight: bold;*/
+    }
+    .options{
+    	
+    	width:100%; 
+
+    }
+	.OnDemand{
+		
+	    padding-left: 64px;
+	    border-left: solid 1px #FFF;
+	    text-shadow: 1px 1px 1px #000;
+	}
+	.OnDemand h1{margin:0px; padding:0px;}
+	.OnDemand .slogan{text-align:right; color: #ffb200; width: 218px; margin-top: -10px;}
+    
+	.OnDemand ul{
+		font-size:16px;
+	 	margin-left:-35px;
+		background: rgba(0,0,0,0.2);
+		padding: 20px 10px;
+		width: 320px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px; /* future proofing */	
+	}
+	.OnDemand ul li{
+    	text-align: left;
+    	list-style-type: none;
+    	font-weight: bold;
+    }
+    .devices_wrapper{
+    	width: 100%;
+    	background-color: #000;
+    	height: auto;
+    	clear: both;
+    	z-index: 90;
+    }
+    .watch_devices {
+    	text-align:left;
+    	width:100%; 
+    	padding-top: 60px;    	
+    	float: left;
+    }
+}
+
+@media only screen and (max-width:767px) {
+	header>p{
+		width:250px;
+		margin-top:6px;
+		float:right;
+	}
+	header>p>*{
+	    float:left;
+	    
+	}
+	header>p>span{
+		margin-right:20px;
+		margin-bottom:4px;
+	}
+	
+	div>#banner_small{
+		display: none;
+	}
+
+	
+}
+
+/*footer>div:first-child {*/
+
+	/*border-bottom: 1px solid #111;*/
+	/*border-top: 1px solid #82828f;*/
+	/*border-radius: 0px 0px 14px 14px;*/
+/*}*/
+
+/*footer>div:first-child>a {*/
+/*width: 16%;*/
+/*padding: 0px;*/
+/*display: block;*/
+/*float: left;*/
+/*position: relative;*/
+/*text-align: center;*/
+/*}*/
+
+
+/************************************************************************
+*************************************************************************
+	LESS THAN OR EQUAL to 650px IPHONE4
+/************************************************************************
+*************************************************************************/
+@media only screen and (max-width:641px){
+
+	header {
+		height: 60px;
+		background-image: url('/img/splash_header_slice.png');
+		background-repeat: repeat-x;
+		margin-top: 0;
+		padding: 0 2%;
+		width: 96%;
+		z-index: 2;
+	}
+
+	#ff_home{
+		float:none;
+		display:block;
+		margin-top:-108px;
+	}
+	#ff_logo {
+		text-decoration: none;
+		font-size: 0.6em;
+	}
+
+	header>p {
+		font-size: 0.7em;
+	}
+	div#banner{
+		display: none;
+	}
+	div#banner_small{
+		width:90%;
+		position:relative;
+		display: inline-block;
+		margin:auto;
+	}
+	a.footer_vendor_link{
+		width:30%;
+		position:relative;
+		display:inline-block;
+		border:none;
+		margin:0;
+		padding:0;
+		text-decoration:none;
+	}
+	
+	img.splash_badge{
+		display:none;
+	}
+	h2.splash_badge{
+		display:block;
+	}
+	h1.banner_head{
+		margin-bottom:6px;
+		font-size: 1.5em;
+	}
+
+	.difference_netflix{
+		font-size: 1.0em;
+		font-weight: bold;
+		padding: 0px 20px;
+		text-align: center;
+
+	}
+	.bulletlogo{
+		width: 100%;
+	}
+	.bullet{
+		font-size: 0.7em;
+	}
+	.bullet>img{ 
+		width: 15px;
+		height: 15px;
+
+	}
+	td>h3{
+		font-size: 0.75em;
+	}
+
+	.FlixFling_Devices{
+		/*width: 95%;*/
+	}
+	.devices_title{
+		text-align: center;
+	}
+	.bullet{
+		text-align: center;
+		padding-top: 3px;
+	}
+	.the_device{
+		text-align: center;
+	}
+	.the_device img{
+		max-width:100%;
+	}
+	
+	.device_list{
+		/*margin-left: 100px;*/
+		text-align: center;
+	}
+	.the_list{
+		padding-left: 0;
+	}
+
+	video {
+		position: fixed;
+	 	display: none;
+	 }
+
+	.options_container{
+    	height:auto;
+    	width:100%; 
+    	z-index:5;
+    	background: rgba(0,0,0,0.4);
+    }
+    .options{
+    	height:auto; width:100%; z-index: 5; float: left;
+    }
+	.Subscribe{
+		padding-left: 20px;
+		width: 90%;
+        text-align: right;
+        text-shadow: 1px 1px 1px #000;
+        height: auto;
+     	/* background-color: #b36;*/
+    }
+    .slogan{font-weight: bold 300; margin-top: -10px;}
+    
+    .Subscribe ul{
+		font-size:13px;
+	 	margin-left:-35px;
+		background: rgba(0,0,0,0.3);
+		padding: 21px 11px;
+		border: 1px solid #666;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px; /* future proofing */
+		width: 270px;
+		float: right;
+	}
+    .Subscribe ul li{
+    	text-align: right;
+    	list-style-type: none;
+    	font-weight: bold;
+    }
+    .yellow{
+    	color:#ffb200;
+    	/*font-weight: bold;*/
+    }
+    
+	.OnDemand{
+		padding-left: 20px;
+		width: 90%;
+        text-align: right;
+        text-shadow: 1px 1px 1px #000;
+        height: auto;
+        margin-top: 10px;
+        /*background-color: #b33;*/
+	}
+	
+	.OnDemand ul{
+		font-size:13px;
+	 	margin-left:-35px;
+		background: rgba(0,0,0,0.3);
+		padding: 21px 11px;
+		border: 1px solid #666;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px; /* future proofing */
+		width: 270px;
+		float: right;
+	}
+	.OnDemand ul li{
+    	text-align: right;
+    	list-style-type: none;
+
+    }
+    .watch_devices{
+    	padding: 30px 0 30px 0;
+    }
+    .watch_devices>img{
+    	width: 90%;
+    }
+    header>p{
+    	margin-top: 23px;
+    }
+    .desktopOnly{
+    	display: none;
+    }
+}
+
+
+/* ==========================================================================
+   style
+   ========================================================================== */
+/************************************************************************
+*************************************************************************
+	All screen sizes
+/************************************************************************
+*************************************************************************/
+a, a:visited{
+	color:#ffb200;
+}
+
+html{
+	background: #000; 
+	font-size:18px;
+}
+
+button.buttonStyle1, a.buttonStyle1,
+button.buttonStyle1:hover, a.buttonStyle1:hover,
+button.buttonStyle1:active, a.buttonStyle1:active,
+button.buttonStyle1:focus, a.buttonStyle1:focus{
+	padding: 11px 30px;
+	border-radius: 2px;	
+	text-align: center;
+	color: #000;
+	font-size: 14px;
+	height:46px;
+	background: rgb(255,192,0);
+	font-weight: bold;
+}
+button.buttonStyle2, a.buttonStyle2,
+button.buttonStyle2:hover, a.buttonStyle2:hover,
+button.buttonStyle2:active, a.buttonStyle2:active,
+button.buttonStyle2:focus, a.buttonStyle2:focus{
+	padding: 11px 30px;
+	border-radius: 2px;	
+	text-align: center;
+	color: #000;
+	font-size: 14px;
+	height:46px;
+	background: rgb(255,192,0);
+	font-weight: bold;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
