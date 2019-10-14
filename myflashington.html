@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="no-js gradientStyle1 gradient" prefix="og: http://ogp.me/ns#"
+      xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0"/>
+    <meta property="fb:app_id" content="849481428508634"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.flixfling.com/img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flixfling.com/img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flixfling.com/img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.flixfling.com/img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="https://www.flixfling.com/img/favicon.ico">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="https://www.flixfling.com/img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/flixfling_responsive.css" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jqobjects.v2.2.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22475035-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22475035-1');
+
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : "182970482477566",
+              cookie     : true,
+              xfbml      : true,
+              version    : "v2.12"
+          });
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+        <meta name="robots" content="index,follow">
+            <title>MyFlix</title>
+
+    <!--[if gte IE 9]>
+    <style type="text/css">
+      .gradient { filter: none; }
+    </style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/vendor/jquery.htmlClean.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="gradient">
+    <script>
+        $(function(){
+
+            $("#explore-btn, #explore-genres-dropdown").hover(function(){
+                var dropdown = $("#explore-genres-dropdown");
+                dropdown.css("display", "inline-block").addClass("open");
+            }, function(){
+                var dropdown = $("#explore-genres-dropdown");
+                setTimeout(function(){
+                    if(!($("#explore-btn").is(":hover") || $("#explore-genres-dropdown").is(":hover"))){
+                        dropdown.css("display", "none").removeClass("open");
+                    }
+                }, 50);
+            });
+
+            //  hide/show dropdown in mobile
+            $("#explore-btn").click(function(){
+                if(!$("#explore-genres-dropdown").hasClass("open")){
+                    $("#explore-genres-dropdown").css("display", "inline-block").addClass("open");
+                }else{
+                    $("#explore-genres-dropdown").css("display", "none").removeClass("open");
+                }
+            });
+
+
+            //  initial formatting of carousels based on screen width
+            var currentSlidesPerPage = 0;
+            function startNewPage(afterThisElement){
+                //  adds "<div class='item'></div>" after last "div.item" (which is a page)
+                $(afterThisElement).after("<div class='item'></div>");
+                //  return reference to new "div.item"
+                return $(afterThisElement).next();
+            }
+            if($(".carousel-inner:not(.slideshow)").length > 0){
+                var slidesPerPage = 6;
+                var maxSlidesPerPage = 6;
+                var width = $(window).width();
+
+                //If we are on a musicchoice page, we only want 5 slides per page max
+                if($(".carousel-inner.mc-carousel").length > 0){
+                    maxSlidesPerPage = 5;
+                }
+                //  determine slidesPerPage based on screen width
+                switch(true){
+                    case (width >= 768):
+                        slidesPerPage = maxSlidesPerPage;
+                        break;
+                    case (width > 639):
+                        slidesPerPage = 4;
+                        break;
+                    case (width > 359):
+                        slidesPerPage = 3;
+                        break;
+                    default:
+                        slidesPerPage = 2;
+                        break;
+                }
+                currentSlidesPerPage = slidesPerPage;
+                //  iterate over each carousel
+                $.each($(".carousel-inner:not(.slideshow)"), function(index, value){
+                    var carouselInner = $(value);
+                    //  skip this process for any carousels where 'slidesPerPage' >= number of slides
+                    var slideCount = carouselInner.children(".item").children(".movie_item").length;
+                    if(slideCount <= slidesPerPage){
+                        carouselInner.siblings(".carousel-control").remove();
+                        return true;
+                    }
+                    //  get first Page (".item.active") -- only "page" so far -- initially holds ALL slides
+                    var firstPage = carouselInner.children(".item.active");
+                    //  total count of slides in this carousel
+                    var itemCount = slideCount;
+                    //  create new page ("div.item") HTML object
+                    var nextPage = startNewPage(firstPage);
+                    for(var i = slidesPerPage + 1; i <= itemCount; i++){
+                        if(!((i - 1) % slidesPerPage) && i > (slidesPerPage + 1)){
+                            nextPage = startNewPage(nextPage);
+                        }
+                        nextPage.append($(firstPage.children(".movie_item:nth-child("+(slidesPerPage + 1)+")")));
+                    }
+                });
+
+                if(width > 768){
+                    $(".movie_item:not(.mc_item) > a").hover(function(){
+                        $(this).css("opacity", 0.4);
+                    }, function(){ return; });
+                    $('.movie_item > a').on('hidden.bs.popover', function () {
+                        if(!$(this).is(":hover") ){
+                            $(".movie_item > a").css("opacity", 1);
+                        }
+                    });
+                }
+                var formatting = false;
+                function reformatSlides(){
+                    var slidesPerPage = 6;
+                    var maxSlidesPerPage = 6;
+                    var width = $(window).width();
+
+                    //If we are on a musicchoice page, we only want 5 slides per page max
+                    if($(".carousel-inner.mc-carousel").length > 0){
+                        maxSlidesPerPage = 5;
+                    }
+                    //  determine slidesPerPage based on screen width
+                    switch(true){
+                        case (width >= 768):
+                            slidesPerPage = maxSlidesPerPage;
+                            break;
+                        case (width > 639):
+                            slidesPerPage = 4;
+                            break;
+                        case (width > 359):
+                            slidesPerPage = 3;
+                            break;
+                        default:
+                            slidesPerPage = 2;
+                            break;
+                    }
+                    if(slidesPerPage == currentSlidesPerPage){
+                        formatting = false;
+                        return;
+                    }
+                    currentSlidesPerPage = slidesPerPage;
+                    $.each($(".carousel-inner:not(.slideshow)"), function(index, value) {
+                        var carouselInner = $(value);
+                        // get the index of the last movie currently showing on the carousel
+                        var lastMovie = carouselInner.find(".item.active").find(".movie_item").first();
+                        var lastMovieIndex = carouselInner.find(".movie_item").index(lastMovie);
+
+                        carouselInner.find(".item.active").removeClass("active").end().find(".item:first-child").addClass("active");
+                        $(carouselInner.children(".item:not(.active)").children(".movie_item")).appendTo(carouselInner.children(".item.active"));
+                        $(carouselInner.children(".item:not(.active)").remove());
+                        //  get first Page (".item.active") -- only "page" so far -- initially holds ALL slides
+                        var firstPage = carouselInner.children(".item.active");
+                        //  total count of slides in this carousel
+                        var itemCount = firstPage.children(".movie_item").length;
+                        //  create new page ("div.item") HTML object
+                        var nextPage = startNewPage(firstPage);
+                        for(var i = slidesPerPage + 1; i <= itemCount; i++){
+                            if(!((i - 1) % slidesPerPage) && i > (slidesPerPage + 1)){
+                                nextPage = startNewPage(nextPage);
+                            }
+                            nextPage.append($(firstPage.children(".movie_item:nth-child("+(slidesPerPage + 1)+")")));
+                        }
+
+                        //find div.item that contains the starting movie, and set it to be the active item
+                        var startingMovieLocation = carouselInner.find(".movie_item").eq(lastMovieIndex);
+                        var parentItem = startingMovieLocation.parent();
+                        carouselInner.find(".item.active").removeClass("active");
+                        parentItem.addClass("active");
+
+                        //Prevent previous arrow from displaying when it shouldn't
+                        if(lastMovieIndex < 6 && !carouselInner.hasClass("show-left-arrow")){
+                            var arrowSelector = "#btnPrev_" + carouselInner.parent().attr("data-tid");
+                            $(arrowSelector).hide();
+                        }
+                    });
+
+                    if(width > 768){
+                        $('[data-toggle="popover"]').popover("enable");
+                        $(".movie_item:not(.mc_item) > a").unbind("mouseenter mouseleave").hover(function(){
+                            $(this).css("opacity", 0.4);
+                        }, function(){ return; });
+                        $('.movie_item > a').on('hidden.bs.popover', function () {
+                            if(!$(this).is(":hover") ){
+                                $(".movie_item > a").css("opacity", 1);
+                            }
+                        });
+                    }else{
+                        $('[data-toggle="popover"]').popover("disable");
+                        $(".movie_item > a").unbind("mouseenter mouseleave");
+                        $('.movie_item > a').on('hidden.bs.popover');
+                    }
+                    formatting = false;
+                }
+
+                $(window).resize(function(){
+                    if(!formatting){
+                        formatting = true;
+                        reformatSlides();
+                    }
+                });
+            }
+            $(".navbar.navbar-default.navbar-fixed-top").attr("data-js-width", $(window).width());
+        });
+    </script>
+
+    <nav class="navbar navbar-default navbar-fixed-top" data-js-width="">
+      <div class="container container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.flixfling.com/browse"><img alt="FlixFling" src="img/FF_LOGO_YELLOW.png" width="100%" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a class="btn" id="explore-btn">Explore</a></li>
+                        <li>
+                            <a href="https://www.flixfling.com/channels" class="btn" data-page="channels" id="channel-btn">Channels</a></li>
+                        <li class="myflix-logo"><a href="https://www.flixfling.com/myflix" class="btn" data-page="myflix"></a></li>
+                                                <li><a href="https://www.flixfling.com/live" class="btn">Live</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+
+                                
+                                <div id="explore-genres-dropdown" style="display:none;">
+                    <ul>
+                        <li><a href="/browse/Subscriber Picks">Subscriber Picks</a></li><li><a href="/browse/Action & Adventure">Action & Adventure</a></li><li><a href="/browse/Animated">Animated</a></li><li><a href="/browse/Classic">Classic</a></li><li><a href="/browse/Comedy">Comedy</a></li></ul><ul><li><a href="/browse/Concerts">Concerts</a></li><li><a href="/browse/Documentary">Documentary</a></li><li><a href="/browse/Drama">Drama</a></li><li><a href="/browse/Family">Family</a></li><li><a href="/browse/Fantasy">Fantasy</a></li></ul><ul><li><a href="/browse/Foreign">Foreign</a></li><li><a href="/browse/Fitness">Fitness</a></li><li><a href="/browse/Holiday">Holiday</a></li><li><a href="/browse/Horror">Horror</a></li><li><a href="/browse/LGBT">LGBT</a></li></ul><ul><li><a href="/musicchoice">Music Choice</a></li><li><a href="/browse/Musical">Musical</a></li><li><a href="/browse/Mystery">Mystery</a></li><li><a href="/browse/Romance">Romance</a></li><li><a href="/browse/SciFi">SciFi</a></li></ul><ul><li><a href="/browse/Special Interests">Special Interests</a></li><li><a href="/browse/Sports">Sports</a></li><li><a href="/browse/Thriller">Thriller</a></li><li><a href="/browse/Western">Western</a></li>                    </ul>
+                </div>
+                            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 align-right">
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right flixSearch">
+                                                    <li><a type="button" class="btn btn-md" href="https://www.flixfling.com/auth/login">Sign In</a></li>
+                            <li><a class="btn btn-hollow blueButton" type="button" href="/subscribe/trial14">Join Now For Free</a></li>
+                                                <li class="search-bar-li">
+                            <form method="GET" action="https://www.flixfling.com/search" accept-charset="UTF-8" class="navbar-form navbar-right">
+                            <div class="input-group">
+                                <input type="text" name="terms" id="terms" class="form-control search-query" placeholder=" Search movie, actor...">
+                        <span class="input-group-btn">
+                          <button class="btn" type="submit">&nbsp;</button>
+                        </span>
+                            </div><!-- /input-group -->
+                            </form>
+                            <div class="musicChoice-dropdown mc-searchResults" style="display:none;">
+                                <div class="showResults"></div>
+                                <div class="defaultText">Loading Search Results...</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+          </div>
+
+      </div>
+    </nav>
+        
+        <div id='documentWrapper' class="container">
+          
+          
+  <div class="container" id="myflix-container">
+
+      <div class="jumbotron" style="text-align:center;">
+          <h3>When you purchase or rent a movie, FlixFling will automatically add it to your locker.</h3>
+          <p>Once in MyFlix, you can watch that title any time on any FlixFling supported device.</p>
+      </div>
+   
+        </div>
+    </div>
+            <script>
+        $(function(){
+            $(".navbar-toggle").click(function(){
+                var body = $("body");
+                var docWrapper = $("#documentWrapper");
+                var footer = $("footer");
+                var mobileMenu = $("#mobile-menu");
+                var slideTime = 250;
+                var menuWidth = 250;
+
+                body.toggleClass("mobile-menu-open");
+                //  open menu
+                if(body.hasClass("mobile-menu-open")){
+                    docWrapper.stop().animate({"left":"-" + menuWidth + "px"}, slideTime);
+                    footer.stop().animate({"left":"-" + menuWidth + "px"}, slideTime);
+                    mobileMenu.stop().animate({"right":0}, slideTime);
+                //  close menu
+                }else{
+                    docWrapper.stop().animate({"left":0}, slideTime);
+                    footer.stop().animate({"left":0}, slideTime);
+                    mobileMenu.stop().animate({"right":"-" + menuWidth + "px"}, slideTime);
+                    mobileMenu.children("ul").find("li.has-submenu").find("ul.open").removeClass("open").animate({"right":"-" + menuWidth + "px"}, slideTime);
+                }
+
+                //  open submenu
+                mobileMenu.children("ul").find("li.has-submenu").find("a").click(function(){
+                    var submenu = $(this).siblings("ul");
+                    submenu.addClass("open");
+                    $(this).siblings("ul").stop().animate({"right":0}, slideTime);
+                });
+                //  close submenu
+                mobileMenu.find("li.back").find("a").click(function(){
+                    var submenu = $(this);
+                    while(!submenu.is("ul")){
+                        submenu = submenu.parent();
+                    }
+                    submenu.removeClass("open");
+                    submenu.stop().animate({"right":"-" + menuWidth + "px"}, slideTime);
+                });
+
+                docWrapper.off("click");
+                $("body.mobile-menu-open").find("#documentWrapper").click(function(){
+                    $(this).off("click");
+                    $(".navbar-toggle").click();
+                });
+            });
+        });
+    </script>
+    <div id="mobile-menu">
+        <ul class = "flixSearch">
+            <li class="search-bar-li mobile">
+                <form method="GET" action="https://www.flixfling.com/search" accept-charset="UTF-8" class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" name="terms" id="terms" class="form-control search-query" placeholder="Search movie, actor...">
+                    <span class="input-group-btn">
+                          <button class="btn" type="submit">&nbsp;</button>
+                        </span>
+                </div><!-- /input-group -->
+                </form>
+                <div class="musicChoice-dropdown mc-searchResults" style="display:none;">
+                    <div class="showResults"></div>
+                    <div class="defaultText">Loading Search Results...</div>
+                </div>
+            </li>
+                        <li><a href="https://www.flixfling.com/browse">Home</a></li>
+            <li><a href="https://www.flixfling.com/channels" data-page="channels">Channels</a></li></li>
+            <li><a href="https://www.flixfling.com/myflix" data-page="myflix">MyFlix</a></li>
+
+            <li><a href="/musicchoice">Music Choice</a></li>
+            
+            <li><a href="https://www.flixfling.com/live" data-page="live">Live</a></li>
+                                        <li><a href="https://www.flixfling.com/auth/login">Sign In</a></li>
+                <li><a href="/subscribe/trial14">Join Now For Free</a></li>
+                                                                                                                                                                        </ul>
+    </div>
+            <footer class='container-fluid'>
+        <div class="container">
+                                                                                                                                    <div>
+                <h6 id='footerCopyright'>&copy; FlixFling. All Rights Reserved. Your use of this site is subject to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</h6>
+            </div>
+            <nav>
+                <a href="https://www.facebook.com/FlixFling/" target="_blank"><img src="img/ff_facebook.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/FlixFling" target="_blank"><img src="img/ff_twitter.png" alt="Twitter" /></a>
+                <a href="https://plus.google.com/b/114498294128771307642/114498294128771307642" target="_blank"><img src="img/ff_google.png" alt="Google+" /></a>
+                <a href="https://www.instagram.com/flixfling/" target="_blank"><img src="img/ff_instagram.png" alt="Instagram" /></a>
+                <a href="https://www.flixfling.com/eula" class="linkDivider">EULA</a>
+                <a href="https://www.flixfling.com/about" class="linkDivider">About</a>
+                <a href="http://blog.flixfling.com/" target='_blank' class="linkDivider">Blog</a>
+                <a href="https://www.flixfling.com/faq">FAQ</a>
+                <a href="https://www.flixfling.com/contact" class="linkDivider">Contact</a>
+            </nav>
+        </div>
+        </footer>
+    </body>
+</html>
+

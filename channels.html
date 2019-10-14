@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html class="no-js gradientStyle1 gradient" prefix="og: http://ogp.me/ns#"
+      xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0"/>
+    <meta property="fb:app_id" content="849481428508634"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.flixfling.com/img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flixfling.com/img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flixfling.com/img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.flixfling.com/img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="https://www.flixfling.com/img/favicon.ico">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="https://www.flixfling.com/img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/flixfling_responsive.css" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jqobjects.v2.2.js"></script>
+    <script src="js/channels.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22475035-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22475035-1');
+
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : "182970482477566",
+              cookie     : true,
+              xfbml      : true,
+              version    : "v2.12"
+          });
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+        <meta name="robots" content="index,follow">
+            <title>Channels</title>
+
+    <!--[if gte IE 9]>
+    <style type="text/css">
+      .gradient { filter: none; }
+    </style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/vendor/jquery.htmlClean.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="gradient">
+    <script>
+        $(function(){
+
+            $("#explore-btn, #explore-genres-dropdown").hover(function(){
+                var dropdown = $("#explore-genres-dropdown");
+                dropdown.css("display", "inline-block").addClass("open");
+            }, function(){
+                var dropdown = $("#explore-genres-dropdown");
+                setTimeout(function(){
+                    if(!($("#explore-btn").is(":hover") || $("#explore-genres-dropdown").is(":hover"))){
+                        dropdown.css("display", "none").removeClass("open");
+                    }
+                }, 50);
+            });
+
+            //  hide/show dropdown in mobile
+            $("#explore-btn").click(function(){
+                if(!$("#explore-genres-dropdown").hasClass("open")){
+                    $("#explore-genres-dropdown").css("display", "inline-block").addClass("open");
+                }else{
+                    $("#explore-genres-dropdown").css("display", "none").removeClass("open");
+                }
+            });
+
+
+            //  initial formatting of carousels based on screen width
+            var currentSlidesPerPage = 0;
+            function startNewPage(afterThisElement){
+                //  adds "<div class='item'></div>" after last "div.item" (which is a page)
+                $(afterThisElement).after("<div class='item'></div>");
+                //  return reference to new "div.item"
+                return $(afterThisElement).next();
+            }
+            if($(".carousel-inner:not(.slideshow)").length > 0){
+                var slidesPerPage = 6;
+                var maxSlidesPerPage = 6;
+                var width = $(window).width();
+
+                //If we are on a musicchoice page, we only want 5 slides per page max
+                if($(".carousel-inner.mc-carousel").length > 0){
+                    maxSlidesPerPage = 5;
+                }
+                //  determine slidesPerPage based on screen width
+                switch(true){
+                    case (width >= 768):
+                        slidesPerPage = maxSlidesPerPage;
+                        break;
+                    case (width > 639):
+                        slidesPerPage = 4;
+                        break;
+                    case (width > 359):
+                        slidesPerPage = 3;
+                        break;
+                    default:
+                        slidesPerPage = 2;
+                        break;
+                }
+                currentSlidesPerPage = slidesPerPage;
+                //  iterate over each carousel
+                $.each($(".carousel-inner:not(.slideshow)"), function(index, value){
+                    var carouselInner = $(value);
+                    //  skip this process for any carousels where 'slidesPerPage' >= number of slides
+                    var slideCount = carouselInner.children(".item").children(".movie_item").length;
+                    if(slideCount <= slidesPerPage){
+                        carouselInner.siblings(".carousel-control").remove();
+                        return true;
+                    }
+                    //  get first Page (".item.active") -- only "page" so far -- initially holds ALL slides
+                    var firstPage = carouselInner.children(".item.active");
+                    //  total count of slides in this carousel
+                    var itemCount = slideCount;
+                    //  create new page ("div.item") HTML object
+                    var nextPage = startNewPage(firstPage);
+                    for(var i = slidesPerPage + 1; i <= itemCount; i++){
+                        if(!((i - 1) % slidesPerPage) && i > (slidesPerPage + 1)){
+                            nextPage = startNewPage(nextPage);
+                        }
+                        nextPage.append($(firstPage.children(".movie_item:nth-child("+(slidesPerPage + 1)+")")));
+                    }
+                });
+
+                if(width > 768){
+                    $(".movie_item:not(.mc_item) > a").hover(function(){
+                        $(this).css("opacity", 0.4);
+                    }, function(){ return; });
+                    $('.movie_item > a').on('hidden.bs.popover', function () {
+                        if(!$(this).is(":hover") ){
+                            $(".movie_item > a").css("opacity", 1);
+                        }
+                    });
+                }
+                var formatting = false;
+                function reformatSlides(){
+                    var slidesPerPage = 6;
+                    var maxSlidesPerPage = 6;
+                    var width = $(window).width();
+
+                    //If we are on a musicchoice page, we only want 5 slides per page max
+                    if($(".carousel-inner.mc-carousel").length > 0){
+                        maxSlidesPerPage = 5;
+                    }
+                    //  determine slidesPerPage based on screen width
+                    switch(true){
+                        case (width >= 768):
+                            slidesPerPage = maxSlidesPerPage;
+                            break;
+                        case (width > 639):
+                            slidesPerPage = 4;
+                            break;
+                        case (width > 359):
+                            slidesPerPage = 3;
+                            break;
+                        default:
+                            slidesPerPage = 2;
+                            break;
+                    }
+                    if(slidesPerPage == currentSlidesPerPage){
+                        formatting = false;
+                        return;
+                    }
+                    currentSlidesPerPage = slidesPerPage;
+                    $.each($(".carousel-inner:not(.slideshow)"), function(index, value) {
+                        var carouselInner = $(value);
+                        // get the index of the last movie currently showing on the carousel
+                        var lastMovie = carouselInner.find(".item.active").find(".movie_item").first();
+                        var lastMovieIndex = carouselInner.find(".movie_item").index(lastMovie);
+
+                        carouselInner.find(".item.active").removeClass("active").end().find(".item:first-child").addClass("active");
+                        $(carouselInner.children(".item:not(.active)").children(".movie_item")).appendTo(carouselInner.children(".item.active"));
+                        $(carouselInner.children(".item:not(.active)").remove());
+                        //  get first Page (".item.active") -- only "page" so far -- initially holds ALL slides
+                        var firstPage = carouselInner.children(".item.active");
+                        //  total count of slides in this carousel
+                        var itemCount = firstPage.children(".movie_item").length;
+                        //  create new page ("div.item") HTML object
+                        var nextPage = startNewPage(firstPage);
+                        for(var i = slidesPerPage + 1; i <= itemCount; i++){
+                            if(!((i - 1) % slidesPerPage) && i > (slidesPerPage + 1)){
+                                nextPage = startNewPage(nextPage);
+                            }
+                            nextPage.append($(firstPage.children(".movie_item:nth-child("+(slidesPerPage + 1)+")")));
+                        }
+
+                        //find div.item that contains the starting movie, and set it to be the active item
+                        var startingMovieLocation = carouselInner.find(".movie_item").eq(lastMovieIndex);
+                        var parentItem = startingMovieLocation.parent();
+                        carouselInner.find(".item.active").removeClass("active");
+                        parentItem.addClass("active");
+
+                        //Prevent previous arrow from displaying when it shouldn't
+                        if(lastMovieIndex < 6 && !carouselInner.hasClass("show-left-arrow")){
+                            var arrowSelector = "#btnPrev_" + carouselInner.parent().attr("data-tid");
+                            $(arrowSelector).hide();
+                        }
+                    });
+
+                    if(width > 768){
+                        $('[data-toggle="popover"]').popover("enable");
+                        $(".movie_item:not(.mc_item) > a").unbind("mouseenter mouseleave").hover(function(){
+                            $(this).css("opacity", 0.4);
+                        }, function(){ return; });
+                        $('.movie_item > a').on('hidden.bs.popover', function () {
+                            if(!$(this).is(":hover") ){
+                                $(".movie_item > a").css("opacity", 1);
+                            }
+                        });
+                    }else{
+                        $('[data-toggle="popover"]').popover("disable");
+                        $(".movie_item > a").unbind("mouseenter mouseleave");
+                        $('.movie_item > a').on('hidden.bs.popover');
+                    }
+                    formatting = false;
+                }
+
+                $(window).resize(function(){
+                    if(!formatting){
+                        formatting = true;
+                        reformatSlides();
+                    }
+                });
+            }
+            $(".navbar.navbar-default.navbar-fixed-top").attr("data-js-width", $(window).width());
+        });
+    </script>
+
+    <nav class="navbar navbar-default navbar-fixed-top" data-js-width="">
+      <div class="container container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.flixfling.com/browse"><img alt="FlixFling" src="img/FF_LOGO_YELLOW.png" width="100%" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a class="btn" id="explore-btn">Explore</a></li>
+                        <li>
+                            <a href="https://www.flixfling.com/channels" class="btn" data-page="channels" id="channel-btn">Channels</a></li>
+                        <li class="myflix-logo"><a href="https://www.flixfling.com/myflix" class="btn" data-page="myflix"></a></li>
+                                                <li><a href="https://www.flixfling.com/live" class="btn">Live</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+
+                                
+                                <div id="explore-genres-dropdown" style="display:none;">
+                    <ul>
+                        <li><a href="/browse/Subscriber Picks">Subscriber Picks</a></li><li><a href="/browse/Action & Adventure">Action & Adventure</a></li><li><a href="/browse/Animated">Animated</a></li><li><a href="/browse/Classic">Classic</a></li><li><a href="/browse/Comedy">Comedy</a></li></ul><ul><li><a href="/browse/Concerts">Concerts</a></li><li><a href="/browse/Documentary">Documentary</a></li><li><a href="/browse/Drama">Drama</a></li><li><a href="/browse/Family">Family</a></li><li><a href="/browse/Fantasy">Fantasy</a></li></ul><ul><li><a href="/browse/Foreign">Foreign</a></li><li><a href="/browse/Fitness">Fitness</a></li><li><a href="/browse/Holiday">Holiday</a></li><li><a href="/browse/Horror">Horror</a></li><li><a href="/browse/LGBT">LGBT</a></li></ul><ul><li><a href="/musicchoice">Music Choice</a></li><li><a href="/browse/Musical">Musical</a></li><li><a href="/browse/Mystery">Mystery</a></li><li><a href="/browse/Romance">Romance</a></li><li><a href="/browse/SciFi">SciFi</a></li></ul><ul><li><a href="/browse/Special Interests">Special Interests</a></li><li><a href="/browse/Sports">Sports</a></li><li><a href="/browse/Thriller">Thriller</a></li><li><a href="/browse/Western">Western</a></li>                    </ul>
+                </div>
+                            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 align-right">
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right flixSearch">
+                                                    <li><a type="button" class="btn btn-md" href="https://www.flixfling.com/auth/login">Sign In</a></li>
+                            <li><a class="btn btn-hollow blueButton" type="button" href="/subscribe/trial14">Join Now For Free</a></li>
+                                                <li class="search-bar-li">
+                            <form method="GET" action="https://www.flixfling.com/search" accept-charset="UTF-8" class="navbar-form navbar-right">
+                            <div class="input-group">
+                                <input type="text" name="terms" id="terms" class="form-control search-query" placeholder=" Search movie, actor...">
+                        <span class="input-group-btn">
+                          <button class="btn" type="submit">&nbsp;</button>
+                        </span>
+                            </div><!-- /input-group -->
+                            </form>
+                            <div class="musicChoice-dropdown mc-searchResults" style="display:none;">
+                                <div class="showResults"></div>
+                                <div class="defaultText">Loading Search Results...</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+          </div>
+
+      </div>
+    </nav>
+        
+        <div id='documentWrapper' class="container">
+          
+          
+<div class="container">
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12">
+          
+          <div class="jumbotron">             <h1>What are Premium Channels</h1>
+            <p>Premium channels are curated collections of movies which let you play all titles in that channel for a single monthly subscription price.</p>
+            <p>Customize your experience & only subscribe to the content that you want to watch.</p>
+          </div>
+
+          <div class="row" id="channel_list"> 
+            <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+                <div class="channel_image">
+                  <a href="/channels/176">
+                    <img src="https://admin.flixfling.com/sites/default/files/flixfling-small-channel.jpg" width="100%"/>
+                  </a>
+                </div>
+                <div class="channel_movies row">
+                  <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                     <a href="/movie/23505/watch-Truth-or-Dare" alt="watch Truth or Dare online" >
+                        <img class="cover_img" alt="Truth or Dare" src="https://admin.flixfling.com/sites/default/files/imagecache/product/truth-or-dare-flixfling-500x706.jpg" width="90%">
+                     </a>
+                  </div>
+                  <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                    <a href="/movie/19977/watch-Last-Shop-Standing-The-Rise-Fall-and-Rebirth-of-the-Independent-Record-Shop" alt="watch Last Shop Standing: The Rise, Fall and Rebirth of the Independent Record Shop online" >
+                        <img class="cover_img" alt="Last Shop Standing: The Rise, Fall and Rebirth of the Independent Record Shop" src="https://admin.flixfling.com/sites/default/files/imagecache/product/CVX903106.jpg" width="90%">
+                    </a>
+                  </div>
+                  <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                    <a href="/movie/26362/watch-Among-Wolves" alt="watch Among Wolves online" >
+                        <img class="cover_img" alt="Among Wolves" src="https://admin.flixfling.com/sites/default/files/imagecache/product/AmongWolves_FF.jpg" width="90%">
+                    </a>
+                  </div>
+                </div>
+                <h3 class="channelName">FlixFling  <small>$7.99 / month</small></h3>
+                <div class="row channel_body">
+                    <p class="col-md-12">
+                        The FlixFling channel offers thousands of great movies and now includes tens of thousands of songs from Music Choice.
+                    </p>
+                </div>
+                <a class="btn btn-hollow" href="/channels/176" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                <a class="btn btn-hollow blueButton" href="/subscribe/flixfling?redirect=/channels/176" style="display: block;" role="button">
+                    Subscribe for $7.99 / month
+                </a>
+                <div class="clearfix"></div>
+            </div><!--/.col-xs-12.col-lg-4-->
+            <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+                <div class="channel_image">
+                  <a href="/channels/202">
+                    <img src="https://admin.flixfling.com/sites/default/files/cinefest_bannersmall_1.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/23915/watch-Macadam-Stories" alt="watch Macadam Stories online" >
+                                      <img class="cover_img" alt="Macadam Stories" src="https://admin.flixfling.com/sites/default/files/imagecache/product/MacadamStories_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22156/watch-Just-Jim" alt="watch Just Jim online" >
+                                      <img class="cover_img" alt="Just Jim" src="https://admin.flixfling.com/sites/default/files/imagecache/product/flixfling_justjim_new_500x706.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21827/watch-Easy-Money-Hard-to-Kill" alt="watch Easy Money: Hard to Kill online" >
+                                      <img class="cover_img" alt="Easy Money: Hard to Kill" src="https://admin.flixfling.com/sites/default/files/imagecache/product/NNVG10006199_EasyMoneyHardToKill_FlixFling.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">CineFest  <small>$4.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Unlimited cult classics to the critically acclaimed from the festival circuit, the CineFest channel offers something for everyone!
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/202" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/cinefest?redirect=/channels/202" style="display: block;" role="button">
+                                                                Subscribe for $4.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/188">
+                    <img src="https://admin.flixfling.com/sites/default/files/monstersandnightmares_smallchannel_0.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21844/watch-VHS" alt="watch V/H/S  online" >
+                                      <img class="cover_img" alt="V/H/S " src="https://admin.flixfling.com/sites/default/files/imagecache/product/Magnolia_VHS_FrontRGB.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22280/watch-Sick-Nurses" alt="watch Sick Nurses online" >
+                                      <img class="cover_img" alt="Sick Nurses" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Magnolia_SickNurses_FrontRGB.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22207/watch-Tiger-House" alt="watch Tiger House online" >
+                                      <img class="cover_img" alt="Tiger House" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Tiger_House.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Monsters and Nightmares  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Prepare yourself for all the eerie, horrifying mayhem you can handle with the Monsters and Nightmares Channel.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/188" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/monstersandnightmares?redirect=/channels/188" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/198">
+                    <img src="https://admin.flixfling.com/sites/default/files/dox_smallchannel.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21713/watch-Enron-The-Smartest-Guys-in-the-Room" alt="watch Enron: The Smartest Guys in the Room online" >
+                                      <img class="cover_img" alt="Enron: The Smartest Guys in the Room" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Magnolia_Enron_FrontRGB.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21571/watch-Life-Itself" alt="watch Life Itself online" >
+                                      <img class="cover_img" alt="Life Itself" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Magnolia_LIFEITSELFMAG-WW.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21784/watch-FrackNation" alt="watch FrackNation online" >
+                                      <img class="cover_img" alt="FrackNation" src="https://admin.flixfling.com/sites/default/files/imagecache/product/FrackNation.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">DOX  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Get access to an unrivaled library of award-winning documentaries from some of the world&rsquo;s top filmmakers with the DOX Movie Channel.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/198" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/dox?redirect=/channels/198" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/189">
+                    <img src="https://admin.flixfling.com/sites/default/files/warriorsandgangsters_smallchannel_0.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21407/watch-Whitey-United-States-of-America-V-James-J-Bulger" alt="watch Whitey: United States of America V. James J Bulger online" >
+                                      <img class="cover_img" alt="Whitey: United States of America V. James J Bulger" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Magnolia_WHITEYMAG-WW.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21785/watch-Cocaine-Cowboys-Reloaded" alt="watch Cocaine Cowboys: Reloaded online" >
+                                      <img class="cover_img" alt="Cocaine Cowboys: Reloaded" src="https://admin.flixfling.com/sites/default/files/imagecache/product/CocaineCowboysReloaded.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/21772/watch-Skin-Trade" alt="watch Skin Trade online" >
+                                      <img class="cover_img" alt="Skin Trade" src="https://admin.flixfling.com/sites/default/files/imagecache/product/SKINTRADEMAG-WW-artwork.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Warriors and Gangsters  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Get your fix of the greatest action genre films, MMA fights and interviews with the Warriors and Gangsters Channel. 
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/189" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/warriorsandgangsters?redirect=/channels/189" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/173">
+                    <img src="https://admin.flixfling.com/sites/default/files/kidsflix-small.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/26348/watch-Special-Agent-Kids" alt="watch Special Agent Kids online" >
+                                      <img class="cover_img" alt="Special Agent Kids" src="https://admin.flixfling.com/sites/default/files/imagecache/product/SPECIALAgentKids_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/26486/watch-Bugged" alt="watch Bugged online" >
+                                      <img class="cover_img" alt="Bugged" src="https://admin.flixfling.com/sites/default/files/imagecache/product/BUGGED.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/9613/watch-Daffy-Duck-and-The-Dinosaur" alt="watch Daffy Duck and The Dinosaur online" >
+                                      <img class="cover_img" alt="Daffy Duck and The Dinosaur" src="https://admin.flixfling.com/sites/default/files/imagecache/product/daffy-duck-and-the-dinosaur-cover.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Kids Flix  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     The Kids Flix Channel features some of the best content for kids and adults who are still kids at heart.  
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/173" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/kidsflix?redirect=/channels/173" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/260">
+                    <img src="https://admin.flixfling.com/sites/default/files/ocrm-banner-small.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25961/watch-Live-Coverage" alt="watch Live Coverage online" >
+                                      <img class="cover_img" alt="Live Coverage" src="https://admin.flixfling.com/sites/default/files/imagecache/product/RaceCoverage_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/26020/watch-My-Pain-is-My-Passion-Who-Is-Coach-Pain" alt="watch My Pain is My Passion: Who Is Coach Pain? online" >
+                                      <img class="cover_img" alt="My Pain is My Passion: Who Is Coach Pain?" src="https://admin.flixfling.com/sites/default/files/imagecache/product/MyPainIsMyPassion_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/26015/watch-Manning-Morning-Mayhem" alt="watch Manning Morning Mayhem online" >
+                                      <img class="cover_img" alt="Manning Morning Mayhem" src="https://admin.flixfling.com/sites/default/files/imagecache/product/ManningMorningMayhem_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">OCRM  <small>$5.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Obstacle Course Racing Media is the first network dedicated to bringing everyone the latest news and stories in the world of OCR.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/260" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/ocrm?redirect=/channels/260" style="display: block;" role="button">
+                                                                Subscribe for $5.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/201">
+                    <img src="https://admin.flixfling.com/sites/default/files/amp_smallchannelbanner.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/19474/watch-Brian-Wilson---Songwriter-1969-1982" alt="watch Brian Wilson - Songwriter: 1969-1982 online" >
+                                      <img class="cover_img" alt="Brian Wilson - Songwriter: 1969-1982" src="https://admin.flixfling.com/sites/default/files/imagecache/product/BrianWilson_0.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/3682/watch-Amy-Winehouse---The-Girl-Done-Good" alt="watch Amy Winehouse - The Girl Done Good online" >
+                                      <img class="cover_img" alt="Amy Winehouse - The Girl Done Good" src="https://admin.flixfling.com/sites/default/files/imagecache/product/AmyWinehouse.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/4049/watch-Bruce-Springsteen---Under-Review-1978-1982-Tales-Of-The-Working-Man" alt="watch Bruce Springsteen - Under Review 1978-1982: Tales Of The Working Man online" >
+                                      <img class="cover_img" alt="Bruce Springsteen - Under Review 1978-1982: Tales Of The Working Man" src="https://admin.flixfling.com/sites/default/files/imagecache/product/BruceSpringsteenUnderReview.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">AMP  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Music lovers unite! With AMP, you can experience the best live performances and behind-the-scenes documentaries from your favorite bands and artists.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/201" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/amp?redirect=/channels/201" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/252">
+                    <img src="https://admin.flixfling.com/sites/default/files/fitness-rx.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25025/watch-Kids-and-Sports" alt="watch Kids and Sports online" >
+                                      <img class="cover_img" alt="Kids and Sports" src="https://admin.flixfling.com/sites/default/files/imagecache/product/KidsAndSports_UPDATED_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25030/watch-Tough-Mudder" alt="watch Tough Mudder online" >
+                                      <img class="cover_img" alt="Tough Mudder" src="https://admin.flixfling.com/sites/default/files/imagecache/product/ToughMudder_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25032/watch-MegaFormer" alt="watch MegaFormer online" >
+                                      <img class="cover_img" alt="MegaFormer" src="https://admin.flixfling.com/sites/default/files/imagecache/product/MegaFormer_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">My Fitness Rx  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     My Fitness Rx is an upbeat series that is straight forward and brings a new dynamic to health and fitness content, incorporating news and informational segments ...
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/252" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/myfitnessrx?redirect=/channels/252" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/249">
+                    <img src="https://admin.flixfling.com/sites/default/files/watch-it-scream-small-channel-baner.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/23920/watch-White-Raven" alt="watch White Raven online" >
+                                      <img class="cover_img" alt="White Raven" src="https://admin.flixfling.com/sites/default/files/imagecache/product/WhiteRaven_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/24906/watch-Salvage" alt="watch Salvage online" >
+                                      <img class="cover_img" alt="Salvage" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Salvage_FF.png" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/24909/watch-Replikator" alt="watch Replikator online" >
+                                      <img class="cover_img" alt="Replikator" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Replikator_FF.png" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Watch It Scream  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Check out Watch It Scream for collaborations with storytellers from around the world, bringing the next generation of horror to audiences everywhere! 
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/249" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/watchitscream?redirect=/channels/249" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/62">
+                    <img src="https://admin.flixfling.com/sites/default/files/frightflix_channelicon15.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/18410/watch-The-Beyond" alt="watch The Beyond online" >
+                                      <img class="cover_img" alt="The Beyond" src="https://admin.flixfling.com/sites/default/files/imagecache/product/the-beyond-cover.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/15543/watch-Day-of-The-Dead" alt="watch Day of The Dead online" >
+                                      <img class="cover_img" alt="Day of The Dead" src="https://admin.flixfling.com/sites/default/files/imagecache/product/day-of-the-dead-cover.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/18334/watch-Suspiria" alt="watch Suspiria online" >
+                                      <img class="cover_img" alt="Suspiria" src="https://admin.flixfling.com/sites/default/files/imagecache/product/suspiria-cover.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">FrightFlix  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Watch the scariest movies we have to offer with the FrightFlix channel.  Titles rotate each month so stay tuned!
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/62" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/frightflix?redirect=/channels/62" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/210">
+                    <img src="https://admin.flixfling.com/sites/default/files/naturevision_channelsmall_b.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22172/watch-Costa-Rica" alt="watch Costa Rica online" >
+                                      <img class="cover_img" alt="Costa Rica" src="https://admin.flixfling.com/sites/default/files/imagecache/product/costa-rica.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22178/watch-Wild-Africa" alt="watch Wild Africa online" >
+                                      <img class="cover_img" alt="Wild Africa" src="https://admin.flixfling.com/sites/default/files/imagecache/product/wild-africa.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22186/watch-Autumn-Splendor" alt="watch Autumn Splendor online" >
+                                      <img class="cover_img" alt="Autumn Splendor" src="https://admin.flixfling.com/sites/default/files/imagecache/product/autumn-splender.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">NatureVision TV   <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Subscribe to the NatureVision TV Channel for hours of unspoiled access to the world&rsquo;s most scenic landscapes. Offered in stunning HD!
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/210" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/naturevisiontv?redirect=/channels/210" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                                                                              <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/203">
+                    <img src="https://admin.flixfling.com/sites/default/files/cinepride_smallchannelbanner_0.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22818/watch-Lyle" alt="watch Lyle online" >
+                                      <img class="cover_img" alt="Lyle" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Lyle_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/6232/watch-The-Stranger-in-Us" alt="watch The Stranger in Us online" >
+                                      <img class="cover_img" alt="The Stranger in Us" src="https://admin.flixfling.com/sites/default/files/imagecache/product/the-stranger-in-us.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/22825/watch-The-Dark-Place" alt="watch The Dark Place online" >
+                                      <img class="cover_img" alt="The Dark Place" src="https://admin.flixfling.com/sites/default/files/imagecache/product/TheDarkPlace_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">CinePride  <small>$3.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     The CinePride channel offers a uniquely curated, wide selection of LGBT titles.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/203" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/cinepride?redirect=/channels/203" style="display: block;" role="button">
+                                                                Subscribe for $3.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                                                   <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/168">
+                    <img src="https://admin.flixfling.com/sites/default/files/screendreams_smallchannel.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/17766/watch-Living-Aquarium" alt="watch Living Aquarium online" >
+                                      <img class="cover_img" alt="Living Aquarium" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Living-Aquarium_12.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/17773/watch-Living-Fireplace" alt="watch Living Fireplace online" >
+                                      <img class="cover_img" alt="Living Fireplace" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Living-Fireplace_19.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/17774/watch-Living-Beaches" alt="watch Living Beaches online" >
+                                      <img class="cover_img" alt="Living Beaches" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Living-Beaches_3.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Screen Dreams  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Enjoy the best in galleries, screensavers, and wallpapers on any device via the Screendreams Channel.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/168" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/screendreams?redirect=/channels/168" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/251">
+                    <img src="https://admin.flixfling.com/sites/default/files/freeflix-small-banner.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/3140/watch-Live-From-Tokyo" alt="watch Live From Tokyo online" >
+                                      <img class="cover_img" alt="Live From Tokyo" src="https://admin.flixfling.com/sites/default/files/imagecache/product/LiveFromTokyo_FF_0.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/3186/watch-Cecil-Taylor---All-The-Notes" alt="watch Cecil Taylor - All The Notes online" >
+                                      <img class="cover_img" alt="Cecil Taylor - All The Notes" src="https://admin.flixfling.com/sites/default/files/imagecache/product/CecilTaylorAllTheRightNotes_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/3406/watch-Shutterbug" alt="watch Shutterbug online" >
+                                      <img class="cover_img" alt="Shutterbug" src="https://admin.flixfling.com/sites/default/files/imagecache/product/shutterbug.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">FreeFlix  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Some old, some new, some good, some okay...but, they&#039;re all free!
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/251" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                    <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                                                   <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/248">
+                    <img src="https://admin.flixfling.com/sites/default/files/business-rockstars-small-banner.jpg" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/24653/watch-Empowerista" alt="watch Empowerista online" >
+                                      <img class="cover_img" alt="Empowerista" src="https://admin.flixfling.com/sites/default/files/imagecache/product/Empowerista_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/24497/watch-Off-Air" alt="watch Off Air online" >
+                                      <img class="cover_img" alt="Off Air" src="https://admin.flixfling.com/sites/default/files/imagecache/product/OffAir_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/24473/watch-Tech-It" alt="watch Tech It online" >
+                                      <img class="cover_img" alt="Tech It" src="https://admin.flixfling.com/sites/default/files/imagecache/product/TechIt_FF.jpg" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">Business Rockstars  <small>$4.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Learn how to become part of the start-up revolution! Listen to the passion, stories and insider secrets from today&#039;s most successful entrepreneurs.
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/248" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/businessrockstars?redirect=/channels/248" style="display: block;" role="button">
+                                                                Subscribe for $4.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                                        <div class="col-xs-12 col-sm-6 col-lg-4 channels_window">
+               
+
+                <div class="channel_image">
+                  <a href="/channels/258">
+                    <img src="https://admin.flixfling.com/sites/default/files/watchitkid-smaller-banner.png" width="100%"/>
+                  </a>
+                </div>
+                                        <div class="channel_movies row">
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/26141/watch-Adventures-of-Sonic-the-Hedgehog" alt="watch Adventures of Sonic the Hedgehog online" >
+                                      <img class="cover_img" alt="Adventures of Sonic the Hedgehog" src="https://admin.flixfling.com/sites/default/files/imagecache/product/AdventuresofSonictheHedgehog_FF.png" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25778/watch-Skysurfer-Strike-Force" alt="watch Skysurfer Strike Force online" >
+                                      <img class="cover_img" alt="Skysurfer Strike Force" src="https://admin.flixfling.com/sites/default/files/imagecache/product/SkysurferStrikeForce_FF.png" width="90%">
+                                  </a>
+                              </div>
+                                                        <div class="channel_movie col-md-4 col-xs-4 col-sm-4">
+                                  <a href="/movie/25743/watch-Double-Dragon" alt="watch Double Dragon online" >
+                                      <img class="cover_img" alt="Double Dragon" src="https://admin.flixfling.com/sites/default/files/imagecache/product/DoubleDragon_FF.png" width="90%">
+                                  </a>
+                              </div>
+                                                </div>
+                                  <h3 class="channelName">WatchIt.Kid!  <small>$2.99 / month</small>  </h3>
+                <div class="row channel_body">
+                 <p class="col-md-12">
+                     Remember Double Dragon? Check out our collection of awesome Pop-Culture animation and programming for kids big and small!
+                 </p>
+                </div>
+                  <a class="btn btn-hollow" href="/channels/258" style="display: block; margin-bottom: 10px;" role="button">View details</a>
+                                                                  <a class="btn btn-hollow blueButton" href="/subscribe/watchitkid?redirect=/channels/258" style="display: block;" role="button">
+                                                                Subscribe for $2.99 / month
+                                                        </a>
+                                                          <div class="clearfix"></div>
+               </div><!--/.col-xs-12.col-lg-4-->
+                                        
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+
+    <script>
+        $("a[data-page='channels']").addClass("active");
+    </script>
+      
+
+        </div>
+    </div>
+            <script>
+        $(function(){
+            $(".navbar-toggle").click(function(){
+                var body = $("body");
+                var docWrapper = $("#documentWrapper");
+                var footer = $("footer");
+                var mobileMenu = $("#mobile-menu");
+                var slideTime = 250;
+                var menuWidth = 250;
+
+                body.toggleClass("mobile-menu-open");
+                //  open menu
+                if(body.hasClass("mobile-menu-open")){
+                    docWrapper.stop().animate({"left":"-" + menuWidth + "px"}, slideTime);
+                    footer.stop().animate({"left":"-" + menuWidth + "px"}, slideTime);
+                    mobileMenu.stop().animate({"right":0}, slideTime);
+                //  close menu
+                }else{
+                    docWrapper.stop().animate({"left":0}, slideTime);
+                    footer.stop().animate({"left":0}, slideTime);
+                    mobileMenu.stop().animate({"right":"-" + menuWidth + "px"}, slideTime);
+                    mobileMenu.children("ul").find("li.has-submenu").find("ul.open").removeClass("open").animate({"right":"-" + menuWidth + "px"}, slideTime);
+                }
+
+                //  open submenu
+                mobileMenu.children("ul").find("li.has-submenu").find("a").click(function(){
+                    var submenu = $(this).siblings("ul");
+                    submenu.addClass("open");
+                    $(this).siblings("ul").stop().animate({"right":0}, slideTime);
+                });
+                //  close submenu
+                mobileMenu.find("li.back").find("a").click(function(){
+                    var submenu = $(this);
+                    while(!submenu.is("ul")){
+                        submenu = submenu.parent();
+                    }
+                    submenu.removeClass("open");
+                    submenu.stop().animate({"right":"-" + menuWidth + "px"}, slideTime);
+                });
+
+                docWrapper.off("click");
+                $("body.mobile-menu-open").find("#documentWrapper").click(function(){
+                    $(this).off("click");
+                    $(".navbar-toggle").click();
+                });
+            });
+        });
+    </script>
+    <div id="mobile-menu">
+        <ul class = "flixSearch">
+            <li class="search-bar-li mobile">
+                <form method="GET" action="https://www.flixfling.com/search" accept-charset="UTF-8" class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" name="terms" id="terms" class="form-control search-query" placeholder="Search movie, actor...">
+                    <span class="input-group-btn">
+                          <button class="btn" type="submit">&nbsp;</button>
+                        </span>
+                </div><!-- /input-group -->
+                </form>
+                <div class="musicChoice-dropdown mc-searchResults" style="display:none;">
+                    <div class="showResults"></div>
+                    <div class="defaultText">Loading Search Results...</div>
+                </div>
+            </li>
+                        <li><a href="https://www.flixfling.com/browse">Home</a></li>
+            <li><a href="https://www.flixfling.com/channels" data-page="channels">Channels</a></li></li>
+            <li><a href="https://www.flixfling.com/myflix" data-page="myflix">MyFlix</a></li>
+
+            <li><a href="/musicchoice">Music Choice</a></li>
+            
+            <li><a href="https://www.flixfling.com/live" data-page="live">Live</a></li>
+                                        <li><a href="https://www.flixfling.com/auth/login">Sign In</a></li>
+                <li><a href="/subscribe/trial14">Join Now For Free</a></li>
+                                                                                                                                                                        </ul>
+    </div>
+            <footer class='container-fluid'>
+        <div class="container">
+                                                                                                                                    <div>
+                <h6 id='footerCopyright'>&copy; FlixFling. All Rights Reserved. Your use of this site is subject to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</h6>
+            </div>
+            <nav>
+                <a href="https://www.facebook.com/FlixFling/" target="_blank"><img src="img/ff_facebook.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/FlixFling" target="_blank"><img src="img/ff_twitter.png" alt="Twitter" /></a>
+                <a href="https://plus.google.com/b/114498294128771307642/114498294128771307642" target="_blank"><img src="img/ff_google.png" alt="Google+" /></a>
+                <a href="https://www.instagram.com/flixfling/" target="_blank"><img src="img/ff_instagram.png" alt="Instagram" /></a>
+                <a href="https://www.flixfling.com/eula" class="linkDivider">EULA</a>
+                <a href="https://www.flixfling.com/about" class="linkDivider">About</a>
+                <a href="http://blog.flixfling.com/" target='_blank' class="linkDivider">Blog</a>
+                <a href="https://www.flixfling.com/faq">FAQ</a>
+                <a href="https://www.flixfling.com/contact" class="linkDivider">Contact</a>
+            </nav>
+        </div>
+        </footer>
+    </body>
+</html>
+
