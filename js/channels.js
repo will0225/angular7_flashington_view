@@ -38,7 +38,17 @@ function all_channels(id, image, description) {
     return channelsHtml;
 }
 $(document).ready(function() {
-    
+    $.ajax({
+	    type: "GET",
+	    url: "https://admin.flashington.com/guestApi/site_settings",
+	    //data: JSON.stringify(formData),
+	    contentType: "application/json charset=utf-8",
+	    success: function(data) {
+	    	var site_logo = $.grep(data, function (e) { return e.key == 'site_logo'; });
+	    	$('#site_logo').attr('src', site_logo[0].value);
+	    },
+	    dataType: "json"
+    });
     $.post( "https://admin.flashington.com/guestApi/all_channels")
   	.done(function( data ) {
         var channels = data.channels;
@@ -46,5 +56,17 @@ $(document).ready(function() {
         channels.map(channel=>{
             $('#channel_list').append(all_channels(channel.id, channel.picture, channel.description));
         })
+    })
+    $.post( "https://admin.flashington.com/guestApi/browse", {'key': "8", 'sub_profile_id': 3})
+  	.done(function( data ) {
+		  
+		   var movies = data.sub_category;
+		   $('#explore-genres-dropdown').html('');
+		   movies&&Object.keys(movies).map((value, index)=> {
+				$('#explore-genres-dropdown').append('<ul id="'+value+'"></ul>');
+				Object.keys(movies[value]).map((index)=> {
+					$('ul#'+value).append('<li><a href="./browse_list.html?category='+index+'&id='+movies[value][index]+'">'+index+'</a></li>');
+				})
+           })
     })
 })

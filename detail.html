@@ -28,6 +28,7 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/detail.js"></script>
     <script src="js/jqobjects.v2.2.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -416,13 +417,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://www.flixfling.com/browse"><img alt="FlixFling" src="img/FF_LOGO_YELLOW.png" width="100%" /></a>
+                    <a class="navbar-brand" href="https://www.flashington.com"><img alt="FlixFling" src="img/FF_LOGO_YELLOW.png" width="100%" id="site_logo"/></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="btn" id="explore-btn">Explore</a></li>
                         <li>
-                            <a href="https://www.flixfling.com/channels" class="btn" data-page="channels" id="channel-btn">Channels</a></li>
+                            <a href="channels.html" class="btn" data-page="channels" id="channel-btn">Channels</a></li>
                         <li class="myflix-logo"><a href="https://www.flixfling.com/myflix" class="btn" data-page="myflix"></a></li>
                                                 <li><a href="https://www.flixfling.com/live" class="btn">Live</a></li>
                     </ul>
@@ -541,7 +542,7 @@
         <div class='detailsLeft col-xs-12 col-md-6'>
           <div class="row">
             <div class='posterWrapper col-xs-12 col-lg-10'>
-              <img alt='Adele - The Only Way is Up' title='Adele - The Only Way is Up' src='https://admin.flixfling.com/sites/default/files/imagecache/product/AdeleOnlyWayIsUp.jpg' itemprop="image" />
+              <img alt='Adele - The Only Way is Up' title='Adele - The Only Way is Up' src='https://admin.flixfling.com/sites/default/files/imagecache/product/AdeleOnlyWayIsUp.jpg' id="default_image" itemprop="image" />
 
               <div class="actionContainer hidden-sm hidden-md hidden-lg">
                                 <span class="tvodContainer" itemprop="potentialAction" itemscope itemtype="http://schema.org/WatchAction">
@@ -686,7 +687,7 @@
           <section>
             <div class="row">
               <h1>
-                <a href="/movie/19479/watch-Adele---The-Only-Way-is-Up" itemprop="url"><span itemprop="name">Adele - The Only Way is Up</span>
+                <a href="/movie/19479/watch-Adele---The-Only-Way-is-Up" itemprop="url"><span itemprop="name" id="title"></span>
 
                   
                 </a>
@@ -807,7 +808,7 @@
                                               </div>
               <p>
                 <span class="labelStyle1">Synopsis</span>
-              <span class="detailsValue" itemprop="description">
+              <span class="detailsValue" itemprop="description" id="description">
                 This film discovers who Adele really is and with the aid of rare archive interviews during which she speaks candidly and honestly about her life and career, reveals just what it is that has transformed this seemingly unremarkable girl from Croydon into the most successful musical icon of the third millennium.
               </span>
               </p>

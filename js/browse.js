@@ -1,9 +1,9 @@
 var dd = '';
 
-function singleMovie(id){ 
+function singleMovie(id, sub_profile_id){ 
  var data = 
 `
-<h2 class="genre">${id} <a href="/browse/justadded" class="btn btn-view-all btn-sm">VIEW ALL</a> </h2>
+<h2 class="genre">${id} <a href="browse_list.html?category=${id}&id=${sub_profile_id}" class="btn btn-view-all btn-sm">VIEW ALL</a> </h2>
                 <div class="slide-wrapper row" data-offset="0">
                   <div id="${id}" class="carousel slide" data-interval="false">
                     <div class="carousel-inner show-left-arrow">
@@ -336,12 +336,12 @@ $(document).ready(function() {
 		   movies&&Object.keys(movies).map((value, index)=> {
 				$('#explore-genres-dropdown').append('<ul id="'+value+'"></ul>');
 				Object.keys(movies[value]).map((index)=> {
-					$('ul#'+value).append('<li><a href="/browse/'+index+'">'+index+'</a></li>');
+					$('ul#'+value).append('<li><a href="./browse_list.html?category='+index+'&id='+movies[value][index]+'">'+index+'</a></li>');
 				})
 		   })
 		   $('#movies_list').html('');
-		   Object.keys(data.data).map((value)=> {
-				$('#movies_list').append(singleMovie(value));
+		   Object.keys(data.data).map((value)=> {console.log(data.data[value])
+				$('#movies_list').append(singleMovie(value, data.data[value].id));
 				var videos = data.data;
 				$('#'+value+' .item').html('');
 				if(Object.keys(videos[value]).length!=0) {
@@ -349,7 +349,7 @@ $(document).ready(function() {
 					videoData.map(index=>{
 						
 						$('#'+value+' .item').append(` <div class="movie_item col-md-2 col-sm-2 col-xs-4">
-							<a href="detail.html" alt="watch Pocketman and Cargoboy online" >
+							<a href="detail.html?id=${index.admin_video_id}" alt="watch Pocketman and Cargoboy online" >
 							<img class="cover_img" alt="Pocketman and Cargoboy" 
 								src="${index.default_image}"   role="button" data-toggle="popover" data-trigger="hover" tabindex ="0" data-placement="right"
 								data-title="<span class='movie-title'>${index.title}</span>
