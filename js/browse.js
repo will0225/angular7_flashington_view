@@ -11,7 +11,7 @@ function singleMovie(id, sub_profile_id){
                         <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                             <a href="detail.html" alt="watch Pocketman and Cargoboy online" >
                               <img class="cover_img" alt="Pocketman and Cargoboy" 
-                                  src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/FlixFling_POCKETMAN-AND-CARGOBOY_500x706.jpg"   role="button" data-toggle="popover" data-trigger="hover" tabindex ="0" data-placement="right"
+                                  src=""   role="button" data-toggle="popover" data-trigger="hover" tabindex ="0" data-placement="right"
                                   data-title="<span class='movie-title'>Pocketman and Cargoboy</span>
                                               <div class='movie-info-row'>
                                                   <span class='movie-mpaa-rating'>PG-13</span>
@@ -35,7 +35,7 @@ function singleMovie(id, sub_profile_id){
                       <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                         <a href="/movie/26752/watch-Luke-Sanders-vs-Darrick-Minner" alt="watch Luke Sanders vs. Darrick Minner online" >
                           <img class="cover_img" alt="Luke Sanders vs. Darrick Minner" 
-                              src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/RFA17_Sanders_Minner.jpg"               
+                              src=""               
                               role="button" data-toggle="popover" data-trigger="hover" tabindex ="1" data-placement="right"
                               data-title="
                                                         <span class='movie-title'>Luke Sanders vs. Darrick Minner</span>
@@ -62,7 +62,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26564/watch-Mock-and-Roll" alt="watch Mock and Roll online" >
-                                                <img class="cover_img" alt="Mock and Roll" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/FlixFling%20500x706_MOCK--ROLL.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="2"
+                                                <img class="cover_img" alt="Mock and Roll" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="2"
                                                     data-placement="right"
                                                                                                     data-title="
                                                         <span class='movie-title'>Mock and Roll</span>
@@ -89,7 +89,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26567/watch-Ryde-Or-Die" alt="watch Ryde Or Die online" >
-                                                <img class="cover_img" alt="Ryde Or Die" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/FlixFling%20500x706_RYDE-OR-DIE.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="3"
+                                                <img class="cover_img" alt="Ryde Or Die" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="3"
                                                     data-placement="left"
                                                                                                     data-title="
                                                         <span class='movie-title'>Ryde Or Die</span>
@@ -116,7 +116,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26490/watch-Jack-Hunters-Paranoia-Tapes-4-Kennel-House" alt="watch Jack Hunter&#039;s Paranoia Tapes 4: Kennel House online" >
-                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 4: Kennel House" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/JACK-HUNTERS-PARANOIA-TAPES-4-KENNEL-HOUSE.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="4"
+                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 4: Kennel House" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="4"
                                                     data-placement="left"
                                                                                                     data-title="
                                                         <span class='movie-title'>Jack Hunter&#039;s Paranoia Tapes 4: Kennel House</span>
@@ -143,7 +143,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26488/watch-Jack-Hunters-Paranoia-Tapes-2-Press-Play" alt="watch Jack Hunter&#039;s Paranoia Tapes 2: Press Play online" >
-                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 2: Press Play" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/JACK-HUNTERS-PARANOIA-TAPES-2-PRESS-PLAY.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="5"
+                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 2: Press Play" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="5"
                                                     data-placement="left"
                                                                                                     data-title="
                                                         <span class='movie-title'>Jack Hunter&#039;s Paranoia Tapes 2: Press Play</span>
@@ -170,7 +170,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26489/watch-Jack-Hunters-Paranoia-Tapes-3-Siren" alt="watch Jack Hunter&#039;s Paranoia Tapes 3: Siren online" >
-                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 3: Siren" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/JACK-HUNTERS-PARANOIA-TAPES-3-SIREN.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="6"
+                                                <img class="cover_img" alt="Jack Hunter&#039;s Paranoia Tapes 3: Siren" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="6"
                                                     data-placement="right"
                                                                                                     data-title="
                                                         <span class='movie-title'>Jack Hunter&#039;s Paranoia Tapes 3: Siren</span>
@@ -197,7 +197,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26344/watch-Hail-Mary" alt="watch Hail Mary! online" >
-                                                <img class="cover_img" alt="Hail Mary!" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/HailMary%21_FF.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="7"
+                                                <img class="cover_img" alt="Hail Mary!" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="7"
                                                     data-placement="right"
                                                                                                     data-title="
                                                         <span class='movie-title'>Hail Mary!</span>
@@ -224,7 +224,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26468/watch-Mud-Flap" alt="watch Mud Flap online" >
-                                                <img class="cover_img" alt="Mud Flap" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/DRR514.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="8"
+                                                <img class="cover_img" alt="Mud Flap" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="8"
                                                     data-placement="right"
                                                                                                     data-title="
                                                         <span class='movie-title'>Mud Flap</span>
@@ -251,7 +251,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26568/watch-Safe-Haven-Wild-Animals-Tame-Surroundings" alt="watch Safe Haven: Wild Animals, Tame Surroundings online" >
-                                                <img class="cover_img" alt="Safe Haven: Wild Animals, Tame Surroundings" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/WR1010.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="9"
+                                                <img class="cover_img" alt="Safe Haven: Wild Animals, Tame Surroundings" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="9"
                                                     data-placement="left"
                                                                                                     data-title="
                                                         <span class='movie-title'>Safe Haven: Wild Animals, Tame Surroundings</span>
@@ -278,7 +278,7 @@ function singleMovie(id, sub_profile_id){
                                         </div>
                                                                                                                                                     <div class="movie_item col-md-2 col-sm-2 col-xs-4">
                                             <a href="/movie/26469/watch-Where-Theres-Smoke" alt="watch Where There&#039;s Smoke online" >
-                                                <img class="cover_img" alt="Where There&#039;s Smoke" src="https://admin.flixfling.com/sites/default/files/imagecache/flixfling_desktop/DRR515.jpg"                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="10"
+                                                <img class="cover_img" alt="Where There&#039;s Smoke" src=""                                                                                              role="button" data-toggle="popover" data-trigger="hover" tabindex ="10"
                                                     data-placement="left"
                                                                                                     data-title="
                                                         <span class='movie-title'>Where There&#039;s Smoke</span>
@@ -340,14 +340,14 @@ $(document).ready(function() {
 				})
 		   })
 		   $('#movies_list').html('');
-		   Object.keys(data.data).map((value)=> {console.log(data.data[value])
+		   Object.keys(data.data).map((value)=> {
 				$('#movies_list').append(singleMovie(value, data.data[value].id));
 				var videos = data.data;
 				$('#'+value+' .item').html('');
 				if(Object.keys(videos[value]).length!=0) {
 					var videoData = videos[value].videos;
 					videoData.map(index=>{
-						
+						console.log(index);
 						$('#'+value+' .item').append(` <div class="movie_item col-md-2 col-sm-2 col-xs-4">
 							<a href="detail.html?id=${index.admin_video_id}" alt="watch Pocketman and Cargoboy online" >
 							<img class="cover_img" alt="Pocketman and Cargoboy" 
